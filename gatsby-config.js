@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `SFF Life`,
     description: `Site dedicated to efficient computing.`,
-    siteUrl: `sff.life`,
+    siteUrl: `sff.life`
   },
   plugins: [
     {

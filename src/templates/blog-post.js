@@ -1,15 +1,15 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react";
+import { Link, graphql } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/bio";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const post = this.props.data.markdownRemark;
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const { previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -21,17 +21,15 @@ class BlogPostTemplate extends React.Component {
           <header>
             <h1
               style={{
-                marginBottom: 0,
+                marginBottom: 0
               }}
             >
               {post.frontmatter.title}
             </h1>
-            <p>
-              {post.frontmatter.date}
-            </p>
+            <p>{post.frontmatter.date}</p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr/>
+          <hr />
           <footer>
             <Bio />
           </footer>
@@ -44,7 +42,7 @@ class BlogPostTemplate extends React.Component {
               flexWrap: `wrap`,
               justifyContent: `space-between`,
               listStyle: `none`,
-              padding: 0,
+              padding: 0
             }}
           >
             <li>
@@ -64,11 +62,11 @@ class BlogPostTemplate extends React.Component {
           </ul>
         </nav>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -89,4 +87,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
