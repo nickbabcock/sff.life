@@ -6,7 +6,6 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -18,7 +17,7 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
-            author
+            slogan
           }
         }
       }
@@ -32,6 +31,7 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang
       }}
+      defaultTitle={`${site.siteMetadata.title} - ${site.siteMetadata.slogan}`}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
@@ -60,13 +60,6 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``
-};
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
 };
 
 export default SEO;

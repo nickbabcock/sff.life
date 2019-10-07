@@ -1,4 +1,75 @@
 @import url(sanitize.css);
 @import url(sanitize.css/forms.css);
 @import url(sanitize.css/typography.css);
-@import url(sanitize.css/page.css);
+
+:root {
+  --header-color: #663399;
+}
+
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(15px, 1fr) 1024px minmax(15px, 1fr);
+    grid-template-areas: "head head head" ". main ." "footer footer footer"
+}
+
+.content {
+    grid-area: main;
+}
+
+.header {
+    grid-area: head;
+    background-color: var(--header-color);
+    color: #FFF;
+    width: 100%;
+}
+
+.header h1 {
+    text-shadow: 1px 1px #333,
+                 2px 2px #333,
+                 3px 3px #333,
+                 4px 4px #333,
+                 5px 5px #333,
+                 6px 6px #333;
+    font-weight: 1000;
+    font-size: 3em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    text-align: center;
+}
+
+.slogan {
+    margin-left: 1em;
+}
+
+a.transparent {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 4mm ridge rgb(170, 50, 220, .6);
+    display: inline-block;
+}
+
+.gatsby-resp-image-wrapper {
+    box-shadow: #ddd 0px 0px 10px 2px;
+}
+
+.gatsby-resp-image-figcaption {
+    text-align: center;
+    font-style: italic;
+}
+
+article blockquote {
+    background-color: #efefef;
+	padding: 0.5em 1em;
+	margin-left: 0;
+	margin-right: 0;
+}

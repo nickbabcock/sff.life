@@ -2,13 +2,17 @@ module.exports = {
   siteMetadata: {
     title: `SFF Life`,
     description: `Site dedicated to efficient computing.`,
-    siteUrl: `sff.life`
+    slogan: `efficient computing`,
+    siteUrl: `https://sff.life`
   },
   plugins: [
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require(`postcss-import`)()]
+        postCssPlugins: [
+            require(`autoprefixer`)(),
+            require(`postcss-import`)(),
+        ]
       }
     },
     {
@@ -32,7 +36,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
+              quality: 90,
+              maxWidth: 590,
+              showCaptions: true,
             }
           },
           {
@@ -52,10 +58,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `SFF Life`,
+        short_name: `SFF Life`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#fff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`
