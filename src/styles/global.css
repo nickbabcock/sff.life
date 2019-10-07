@@ -6,10 +6,9 @@
   --header-color: #663399;
 }
 
-
 .layout {
     display: grid;
-    grid-template-columns: minmax(15px, 1fr) 1024px minmax(15px, 1fr);
+    grid-template-columns: minmax(15px, 1fr) minmax(min-content, 1024px) minmax(15px, 1fr);
     grid-template-areas: "head head head" ". main ." "footer footer footer"
 }
 
@@ -21,7 +20,7 @@
     grid-area: head;
     background-color: var(--header-color);
     color: #FFF;
-    width: 100%;
+    max-width: 100%;
 }
 
 .header h1 {
