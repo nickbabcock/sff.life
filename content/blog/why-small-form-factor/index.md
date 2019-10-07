@@ -31,19 +31,19 @@ While gaming laptops can be powerful, compared to small form factor, they are lo
 
 Check out [NotebookCheck's Top 10 Gaming Laptops](https://www.notebookcheck.net/Notebookcheck-s-Top-10-Gaming-Notebooks.98628.0.html), at the time of writing every single one of those laptops is > $2000. You could build a more powerful, SFF friendly pc for $1000-1100, and for anyone in doubt:
 
-- $600 for 2070S mini
-- $170 for R1600 + B450 itx
-- $60 for case (Node 202, SG13)
-- $50-75 for 16GB RAM
-- $100 for 512GB-1TB NVMe
-- $80 for psu
+- \$600 for 2070S mini
+- \$170 for R1600 + B450 itx
+- \$60 for case (Node 202, SG13)
+- \$50-75 for 16GB RAM
+- \$100 for 512GB-1TB NVMe
+- \$80 for psu
 
-You now have $1000 leftover to buy any peripherals you desire.
+You now have \$1000 leftover to buy any peripherals you desire.
 
 Now onto portability, here's how laptopmag.com describes laptop sizes (emphasis mine):
 
 > - 15 inches: The most popular size, 15-inch laptops are the least expensive and provide plenty of desktop real estate. While most 15-inchers are easy to take from room to room, some are on the bulky side.
-> - 17 to 18 inches:  **If your laptop stays on your desk all day**, a 17- or 18-inch system will likely provide everything you need for work and play. Many gaming notebooks are in this size category.
+> - 17 to 18 inches: **If your laptop stays on your desk all day**, a 17- or 18-inch system will likely provide everything you need for work and play. Many gaming notebooks are in this size category.
 
 Huh, to me sounds like "bulky" and "stays on your desk all day" are significant drawbacks for device that aims to be portable. These aren't laptops you're taking on the go. With battery life measured in minutes, one is tied to an outlet and some models even require two power bricks. The only thing going for these laptops is an integrated screen, and with the advent of portable monitors this is becoming less of a selling point. Since both bulky gaming laptops and SFF PCs can fit in backpacks, I can only give a slight edge to the laptops.
 
@@ -59,7 +59,7 @@ The best solution on paper should be eGPUs: have a single thin and light computi
 
 - Need laptop with thunderbolt 3 x4 port (not ubiquitous)
 - Not enough bandwidth on thunderbolt port for full performance realization (1080 eGPU saw a 25% performance hit compared to desktop version)
-- Need expensive enclosure (look to spend $300 or more)
+- Need expensive enclosure (look to spend \$300 or more)
 - [eGPUs are "finicky" and "have a long way to go before it becomes truly plug and play"](https://www.notebookcheck.net/Aorus-RTX-2070-Gaming-Box-with-Dell-XPS-13-9380-Review.413819.0.html)
 - eGPUs are large. The [smallest eGPU is 3.3L](https://www.gigabyte.com/us/Graphics-Card/GV-N2070IXEB-8GC#kf) in size, while [the Velka 3](https://www.velkase.com/products/velka-3) is a full blown case that fits the same GPU in 3.7L. The [number one recommended eGPU](https://egpu.io/best-egpu-buyers-guide/), the Razer Core X, is 14.5L in size -- absolutely absurd. The gold standard for compatibility in the SFF world is the [NCASE M1](https://www.sfflab.com/products/ncase_m1) and that is smaller at 12.6L.
 

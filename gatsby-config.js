@@ -9,10 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [
-            require(`autoprefixer`)(),
-            require(`postcss-import`)(),
-        ]
+        postCssPlugins: [require(`autoprefixer`)(), require(`postcss-import`)()]
       }
     },
     {
@@ -38,7 +35,7 @@ module.exports = {
             options: {
               quality: 90,
               maxWidth: 590,
-              showCaptions: true,
+              showCaptions: true
             }
           },
           {
