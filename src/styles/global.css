@@ -6,6 +6,29 @@
   --header-color: #663399;
 }
 
+
+.excerpt {
+    display: grid;
+    grid-template-areas: "thumb summary";
+    grid-column-gap: 2em;
+}
+
+@media (max-width: 760px) {
+    .excerpt {
+        grid-template-areas: "thumb"
+                             "summary";
+    }
+}
+
+.excerpt-thumbnail {
+    grid-area: thumb;
+    justify-self: center;
+}
+
+.excerpt-summary {
+    grid-area: summary;
+}
+
 .layout {
     display: grid;
     grid-template-columns: minmax(15px, 1fr) minmax(min-content, 1024px) minmax(15px, 1fr);
@@ -57,7 +80,8 @@ h2 {
     display: inline-block;
 }
 
-.gatsby-resp-image-wrapper {
+.gatsby-resp-image-wrapper,
+.shadow-image {
     box-shadow: #ddd 0px 0px 10px 2px;
 }
 

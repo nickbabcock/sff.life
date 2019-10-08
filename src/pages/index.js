@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import Image from "gatsby-image"
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -17,7 +18,11 @@ class BlogIndex extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
-            <article key={node.fields.slug}>
+            <article className="excerpt" key={node.fields.slug}>
+              <div className="excerpt-thumbnail">
+                <Image className="shadow-image" fixed={node.frontmatter.thumbnail.childImageSharp.fixed}/>
+              </div>
+              <div className="summary">
               <header>
                 <h3>
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -33,6 +38,7 @@ class BlogIndex extends React.Component {
                   }}
                 />
               </section>
+            </div>
             </article>
           );
         })}
@@ -59,6 +65,13 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            thumbnail {
+              childImageSharp {
+                fixed(width: 250, height: 250, quality: 90) {
+                  ...GatsbyImageSharpFixed
+                }
+              } 
+            }
             title
             description
           }
