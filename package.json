@@ -1,7 +1,7 @@
 {
   "name": "sff.life",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Repo for sff.life, a site dedicated to efficient computing",
   "version": "0.1.0",
   "author": "Nick Babcock <nbabcock19@hotmail.com>",
   "dependencies": {
