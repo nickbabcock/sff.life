@@ -60,7 +60,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `browser`,
         icon: `content/assets/sff-icon.png`
       }
     },
