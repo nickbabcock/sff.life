@@ -1,5 +1,5 @@
 ---
-title: Why Small Form Factor
+title: Why small form factor
 date: "2019-10-07"
 thumbnail: razer-core-x.jpg
 description: "SFF PCs are often disregarded in favor of gaming laptops or full sized ATX cases, but those alternatives have downsides where small form factor finds its niche: powerful, silent, and portable. Full sized ATX cases are space inefficient, bulky, and harder to work with, while gaming laptops are louder, barely more portable, and significantly more expensive. If exposed to SFF PCs, I believe more people would opt for them"
