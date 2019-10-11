@@ -5,7 +5,7 @@ thumbnail: ./950mv-core.png
 description: "System running too hot? Power supply not powerful enough or dying? Pushing the power evenlope? Undervolting your most power hungry component, which is more likely than not the GPU, can achieve power savings and reduce temperature all without sacrificing performance. And if you can tolerate single digit performance decreases, temperature and power savings can be tremendous"
 ---
 
-Small form factor enthusiasts repeatedly stuff power hungry components into tighter spaces. Sometimes things get too hot or too powerful. Or maybe a power supply is starting to fail, etc. Luckily, one can undervolt their most power hungry component, which is more likely than not the GPU, and can achieve power savings with temperature reduction all without sacrificing performance. And undervolting the GPU can be done quite quickly by any layperson.
+Small form factor enthusiasts repeatedly stuff power hungry components into tighter spaces. Sometimes things get too hot, too loud, or too powerful. Or maybe a power supply is starting to fail, etc. Luckily, one can undervolt their most power hungry component, which is more likely than not the GPU, and can achieve power savings with temperature reduction all without sacrificing performance. And undervolting the GPU can be done quite quickly by any layperson.
 
 Not to spoil anything but we'll **undervolt a GTX 1070 to within a GTX 1060's TDP with no performance drops**
 
@@ -42,7 +42,7 @@ Before we dive too deep into undervolting, let's break down what it really means
 
 - Kill A Watt shows 200 watts
 - The PSU ([SSP-300-SUG](https://seasonic.com/pub/media/pdf/industrial/datasheet/SSP-300-SUG.pdf)) is 300W 80 Plus Gold certified
-- Since the PSU is gold, while between 20-100% load, it's able to to convert 87%-90% of inbound power to the components with the rest dispersed as heat
+- Since the PSU is gold certified, while between 20-100% load, it's able to to convert 87%-90% of inbound power to the components with the rest dispersed as heat
 - Thus components are asking between 174-180 watts (else the PSU would be rated silver or platinum) 
 - If the components are asking for max power (300 watts), the Kill A Watt should be reading 337-344 before shutdown
 
@@ -113,7 +113,8 @@ This will shift the voltage frequency graph up by 51mhz ensuring a nice smooth r
 - For all voltage points greater than 950mv, drag them to or below 1860mhz
 - Hit "✔" to apply
 - Afterburner will adjust the points to be the same frequency as our locked voltage
-- You may have to comb over >950mv points to ensure that afterburner didn't re-adjust any voltage points to be greater than 1860mhz. It happens
+- You may have to comb over the points to ensure that afterburner didn't re-adjust any voltage points to be greater than 1860mhz. It happens. You can hit "Tab" or "Shift + Tab" to cycle through the voltages quickly after selecting a point, and "↓" to adjust frequency by 1MHz or "Ctrl + ↓" to adjust by 10MHz.
+- Hit "l" to unlock the voltage / frequency curve after confirming all voltages greater than 950mv are set to our target frequency. If one forgets this step, the GPU will be pinned to 950mv and unable to idle!
 - Hit "✔" to apply
 
 End result should look like:
@@ -185,4 +186,34 @@ As a comparison
 - With our Timespy score of 5948 at 124W, we have GTX 1070 performance at GTX 1060's TDP
 - With our Timespy score of 5600 at 105W, we're more energy efficient than a GTX 1060 yet still command a massive performance advantage
 
-In the end, we've decreased power usage for the GPU considerably (54 watts!), lowered temperatures, and opted into additional undervolts for a near neglible performance loss.
+We've decreased power usage for the GPU considerably (54 watts!), lowered temperatures, and opted into additional undervolts for a near neglible performance loss.
+
+Still not convinced? One thing that I've not mentioned is the noise reduction undervolting brings. Below is a graph from Afterburner that shows % fan speed during a timespy run to be between 50-60%.
+
+![afterburner-fan-rpm](./afterburner-fan-rpm.png "Afterburner showing max fan usage between 50-60% after undervolt")
+
+I find this incredible. A single fan, ITX GPU at 100% load, below 70°C, under 60% fan max RPM. It's a SFF miracle; a GPU that is small, powerful, and silent.
+
+Undervolting, so underrated. 
+
+## FAQ
+
+### How to I know my GPU is respecting the undervolt?
+
+- Have your undervolt set in afterburner through the voltage / frequency editor. (We used 800mv in "[One step further](#one-step-further)")
+- Ensure HWiNFO is open and reset
+- Run timespy or another intensive workload
+- Max GPU Core Voltage should not exceed our undervolt
+
+![hwinfo-check-gpu-core-voltage](./hwinfo-check-gpu-core-voltage.png "HWiNFO showing our 800mv undervolt is respected")
+
+### How do I stress test the undervolt
+
+- Do the most GPU intensive thing you regularly do
+- If that is not enough: download, install, and run [MSI's Kombustor](https://geeks3d.com/furmark/kombustor/) for an hour
+
+You've read this far or ctlr + f "stress" and can't believe I've been so dismissive of stress tests. Not to go on a rant, but people put too much weight on stress tests, and some may find this guide woefully lacking if a stress test section is not included. Those same people will disagree amongst themselves about which stress tests should be ran, how they should be ran, and the durations of the tests. Anyone not following their formula is sacrificing stability. It's a community of gatekeepers that exude elitism under false stability pretenses. Those that sneer at undervolting are the same that have unrealistic expectations on how they use their computer.
+
+Sorry for those harsh words. I understand the drive for stability, but your computer isn't going to be hammered on by hardcore overclockers that attempt to set world records under liquid nitrogen.
+
+So after a half of year of running the 800mv undervolt without crashes, I decided run Kombustor for a half day. No crashes. Sub 70°C. If Kombustor had crashed, it would not have worried me because (and as much as a weird flex as this is) I'm on this computer all day nearly every day and it's rock solid for my workloads. If Kombustor crashing has you worried, no sweat -- bump your undervolt up +25MHz. You want to be comfortable with your computer, and that's up to you to define.
