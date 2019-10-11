@@ -156,7 +156,15 @@ After three successful benchmarks:
 - GPU max temp decreased from 82 to 75 (9-10% reduction)
 - Attempting an undervolt of 875mv at 1886mhz (the original max clock) was not stable
 
-These are good results that demonstrate that there is no performance loss from undervolting, yet one can mitigate heat and power usage. I decided to take undervolting one step further and set my target frequency to the GPU's boost frequency (1721mhz) and record the results:
+These are good results that demonstrate that there is no performance loss from undervolting, yet one can mitigate heat and power usage.
+
+### One step further
+
+I decided to double down on undervolting and see just how far we can take this. I repeated all the steps we've taken but with a target frequency set to the GPU's boost clock (1721MHz). Fast forward an hour later and this is the resulting voltage / frequency curve I ended with.
+
+![800mv-vf](./800mv-vf.png "Undervolted to 800mv at 172MHz")
+
+And for completeness sake, here are all my results across all undervolts.
 
 ![google-sheets-results2](./google-sheets-results2.png "Final spreadsheet after additional undervolting")
 
