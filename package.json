@@ -13,6 +13,7 @@
     "gatsby-plugin-postcss": "^2.1.11",
     "gatsby-plugin-react-helmet": "^3.1.11",
     "gatsby-plugin-sharp": "^2.2.29",
+    "gatsby-remark-autolink-headers": "^2.1.14",
     "gatsby-remark-copy-linked-files": "^2.1.26",
     "gatsby-remark-images": "^3.1.26",
     "gatsby-remark-responsive-iframe": "^2.2.23",
@@ -31,7 +32,9 @@
     "autoprefixer": "^9.6.4",
     "prettier": "^1.18.2"
   },
-  "browserslist": ["defaults"],
+  "browserslist": [
+    "defaults"
+  ],
   "homepage": "https://sff.life",
   "license": "MIT",
   "main": "n/a",
