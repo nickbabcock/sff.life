@@ -71,6 +71,7 @@ a.transparent {
 }
 
 footer {
+    margin-top: 2em;
     grid-area: footer;
     text-align: center;
 }

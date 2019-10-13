@@ -15,7 +15,9 @@ class Layout extends React.Component {
         </header>
         <main className="content">{children}</main>
         <footer className="footer">
-          <p></p>
+          <hr/>
+          <p>This site is a labor of love. There is no commenting system, but I'm happy to have each article link to external discussion sites like reddit.</p>
+          <p>Bugs, issues, or requests can either be directed at the <a href="https://github.com/nickbabcock/sff.life">github repo</a> or sent via email to hi [at] sff [dot] life</p>
         </footer>
       </div>
     );
