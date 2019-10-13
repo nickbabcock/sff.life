@@ -146,6 +146,8 @@ After three successful benchmarks:
 - Proceed to adjust all greater voltages to our frequency
 - Re-benchmark
 
+If the undervolt is unstable then Timespy won't finish and will display an error. That's when you know you've undervolted too far and to dial it back one step. It is rare that undervolts would cause significant instability like blue screens, system freezes, or screen artifacts.
+
 ### Results
 
 ![google-sheets-results](./google-sheets-results.png "Spreadsheet tracking the undervolt process")
@@ -207,7 +209,7 @@ Undervolting, so underrated.
 
 ![hwinfo-check-gpu-core-voltage](./hwinfo-check-gpu-core-voltage.png "HWiNFO showing our 800mv undervolt is respected")
 
-### How do I stress test the undervolt
+### How do I stress test the undervolt?
 
 - Do the most GPU intensive thing you regularly do
 - If that is not enough: download, install, and run [MSI's Kombustor](https://geeks3d.com/furmark/kombustor/) for an hour
@@ -215,3 +217,9 @@ Undervolting, so underrated.
 You've read this far or ctlr + f "stress" and can't believe I've been so dismissive of stress tests. Not to go on a rant, but people put too much weight on stress tests, and some may find this guide woefully lacking if a stress test section is not included. Those same people will disagree amongst themselves about which stress tests should be ran, how they should be ran, and the durations of the tests. Anyone not following their formula is sacrificing stability. There is no perfect solution. You want to be comfortable with your computer, and that's up to you to define.
 
 So after a half of year of running the 800mv undervolt without crashes, I decided run Kombustor for a half day. No crashes. Sub 70°C. If Kombustor had crashed, it would not have worried me because (and as much as a weird flex as this is) I'm on this computer all day nearly every day and it's rock solid for my workloads. If Kombustor crashing has you worried, no sweat -- bump your undervolt up +25MHz until the stress test has ran long enough to satisfy you. 
+
+## Discussion
+
+This article has been discussed at the following external sites
+
+- [Reddit](https://www.reddit.com/r/sffpc/comments/dgclt7/the_importance_of_gpu_undervolting_in_sff/f3avqw7?utm_source=share&utm_medium=web2x)
