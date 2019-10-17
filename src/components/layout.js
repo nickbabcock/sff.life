@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props;
+    const { title, children } = this.props;
     return (
       <div className="layout">
         <header className="header">
