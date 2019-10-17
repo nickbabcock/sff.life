@@ -1,6 +1,6 @@
 ---
 title: How to undervolt your ryzen cpu
-date: "2019-10-10"
+date: "2019-10-18"
 thumbnail: ./ryzen-master.png
 description: "Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Unfortunately, there are a myriad of different ways to undervolt. This guide will help make the best decision depending on what's available for each system. Along the way we'll record monitoring data and benchmark scores to quantity the effect of undervolting."
 ---
