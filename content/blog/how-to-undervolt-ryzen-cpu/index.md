@@ -1,17 +1,19 @@
 ---
 title: How to undervolt your ryzen cpu
 date: "2019-10-10"
-thumbnail: ./bios-vcore-offset.png
+thumbnail: ./ryzen-master.png
 description: "Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Unfortunately, there are a myriad of different ways to undervolt. This guide will help make the best decision depending on what's available for each system. Along the way we'll record monitoring data and benchmark scores to quantity the effect of undervolting."
 ---
 
-Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Though compared to [how to undervolt your gpu](/how-to-undervolt-gpu/), undervolting your CPU can be daunting as the technique to achieve undervolting can change based on your CPU, motherboard vendor, motherboard model, and even motherboard BIOS version. This guide is sticking to undervolting AMD Ryzen chips to keep the scope somewhat in check. Even though there are lots of variables hopefully everyone can find a solution. 
+**Note: This is a living guide, corrections, suggestions and additional data points are welcomed**
 
-In this guide, we'll **undervolt a Ryzen 2700 to a 2700E's TDP**. But this can also be used to undervolt a 3900X to 65W, if one can't get their hand on the [OEM-only part](https://www.anandtech.com/show/14961/amd-brings-ryzen-9-3900-and-ryzen-5-3500x-to-life).
+Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Compared to [how to undervolt your gpu](/how-to-undervolt-gpu/), undervolting your CPU can be daunting as the technique to achieve undervolting can change based on your CPU, motherboard vendor, motherboard model, and even motherboard BIOS version. This guide is focussing on undervolting desktop AMD Ryzen chips to keep the scope somewhat in check. Even though there are lots of variables hopefully everyone can find a solution. 
+
+In this guide, we'll **undervolt a Ryzen 2700 to a 2700E's TDP**. But this can also be used to undervolt a 3900X (a 105W TDP processor) to 65W if one can't get their hand on the [OEM-only 65W 3900](https://www.anandtech.com/show/14961/amd-brings-ryzen-9-3900-and-ryzen-5-3500x-to-life).
 
 Components we'll be using:
 
-- [Cinebench R20](https://www.maxon.net/en-us/products/cinebench-r20-overview/): Free CPU benchmark for single thread and multi-threaded workloads. It will let us quantify any performance loss due to undervolting. We're using R20 rather than R15, so that the Ryzen chips take longer to complete to help get consistent readings.
+- [Cinebench R20](https://www.maxon.net/en-us/products/cinebench-r20-overview/): Free CPU benchmark for single thread and multi-threaded workloads. It will let us quantify any performance loss due to undervolting. We're using R20 rather than R15, so that high core count CPUs take long enough to complete to help get consistent readings.
 - [HWiNFO64](https://www.hwinfo.com/): to measure our sensor readings (temperature, wattage, etc)
 - Google sheets: A spreadsheet for tracking power usage, benchmarks, any modifications, etc
 - (optional): [P4460 Kill a Watt](http://www.p3international.com/products/p4460.html) electricity usage monitor: to measure output from the wall. This is the only thing that costs money on the list -- you may be able to rent it from a local library or utility company. A wattmeter is not critical, but it'll give us a sense of total component draw that the PSU has to supply. I bought one from my local hardware store.
@@ -21,7 +23,7 @@ Components we'll be using:
 Feel free to swap components out for alternatives, but I'd like to stress two things:
 
 - A benchmark that provides a multi-threaded and single threaded score. Undervolting may effect one more than the other and we need to capture that.
-- The use of an external measurement tool (like the Kill a Watt). Undervolting can cause hardware sensor misreporting, which has tripped up even seasoned SFF enthusiast [Optimum Tech](https://www.youtube.com/watch?v=2wM3obN2pAE) ([Gamers Nexus's response](https://www.gamersnexus.net/guides/3494-amd-ryzen-3000-undervolting-offset-override)). So if we arm ourselves with multiple tools, we can do a sanity check to make sure everything lines up.
+- The use of an external measurement tool (like the Kill a Watt). Undervolting can cause hardware sensor misreporting, which has tripped up even seasoned SFF enthusiast [Optimum Tech](https://www.youtube.com/watch?v=2wM3obN2pAE) (see [Gamers Nexus's response](https://www.gamersnexus.net/guides/3494-amd-ryzen-3000-undervolting-offset-override)). So if we arm ourselves with multiple tools, we can do a sanity check to make sure everything lines up.
 
 ## Important HWiNFO sensors
 
@@ -52,20 +54,20 @@ First we'll measure idle for completeness:
 - Close all programs including those in the background using any cpu cycles
 - Open HWiNFO
 - Wait for the system to settle down (ie, the wattmeter converges to a reading)
-- Record what's being pulled from the wall, and max sensor info from HWiNFO.
+- Record what's being pulled from the wall, and max sensor readings from HWiNFO.
 
-Then benchmark the cpu with cinebench. We'll need to first configure Cinebench show the single core benchmark like so:
+Then benchmark the cpu with Cinebench. We'll need to first configure Cinebench to show the single core benchmark like so:
 
 ![cinebench-r20-single](./cinebench-r20-single.png "Show single core benchmark in Cinebench R20")
 
-The score you are interested in is both the CPU and CPU (single core). Use the process listed below
+After running, record both scores: the CPU and CPU (single core). Use the process listed below
 
 ![cinebench-scores](./cinebench-scores.png "Cinebench R20 scores for CPU / CPU (Single Core)")
 
 - Keep everything closed, except HWiNFO
 - Reset HWiNFO sensors
 - Run Cinebench R20 "CPU" benchmark (multi-threaded)
-- Record score, max wattmeter reading, max watts / temp from the gpu
+- Record score, max wattmeter reading, max watts / temp from the cpu
 - Run Cinebench R20 "CPU (Single Core)"
 - Record score (the single core benchmark shouldn't exceed the wattage or temperature recorded from the multi-threaded test, so we can omit those)
 - Repeat three times
@@ -74,16 +76,16 @@ Here's an example of what I recorded for my initial measurements:
 
 ![google-sheets](./google-sheets.png "How I set up my spreadsheet for recording data")
 
-- Average Timespy score: 3289
+- Average Cinebench score: multi-threaded: 3289, single-threaded: 398
 - Max wattmeter reading: 129W
-- Max CPU watts: 75W
+- Max CPU watts: 75W (note that the R2700 used in testing has an official TDP of 65W. ["It is a common mistake to conflate thermal watts (TDP) with electrical watts "power draw""](https://www.youtube.com/watch?v=tL1F-qliSUk&t=272s) - AMD. So it's more of a rule of thumb)
 - Max CPU temperature: 75c
 
 With our baseline set, it's time to start tweaking!
 
 ## CPU Undervolting
 
-There are several knobs one can dial for Ryzen undervolting. Unfortunately, not all are available depending on the system. And if multiple techniques are available for one to use, they are not all considered equal. Some will wreck single threaded performance, which is why we run those single threaded benchmarks!
+There are several knobs one can dial for Ryzen undervolting. Unfortunately, not all are available depending on the system. And if multiple techniques are available for one to use, they are not all considered equal. Some will wreck single threaded performance, so it is important to run single threaded benchmarks!
 
 Without further ado, this is the basic flow chart you should be checking: select only the first box that's available to your system (if it's unavailable, doesn't work, or doesn't give the results you desire, go to the next box).
 
@@ -93,7 +95,7 @@ If a setting doesn't work, ensure you reset it to its default value so that it d
 
 ### Power Package Tracking
 
-First thing to try altering the max amount of power delivered to the socket. [From Gamers Nexus](https://www.gamersnexus.net/guides/3491-explaining-precision-boost-overdrive-benchmarks-auto-oc)
+First try altering the max amount of power delivered to the socket. [From Gamers Nexus](https://www.gamersnexus.net/guides/3491-explaining-precision-boost-overdrive-benchmarks-auto-oc)
 
 > **Package Power Tracking ("PPT"):** The PPT threshold is the allowed socket
 > power consumption permitted across the voltage rails supplying the socket.
@@ -103,21 +105,23 @@ First thing to try altering the max amount of power delivered to the socket. [Fr
 > 1. Default for Socket AM4 is at least 142W on motherboards rated for 105W TDP processors.
 > 2. Default for Socket AM4 is at least 88W on motherboards rated for 65W TDP processors.
 
-Users have reported that adjusting PPT affords significant efficiency gains compared to other methods. A user compared PPT adjustments to vcore offsets (which we'll get to later), and found power savings of nearly 40W.
+[Users have reported](https://www.reddit.com/r/Amd/comments/ceakbs/if_you_want_to_save_powerreduce_thermals_reduce/) that adjusting PPT affords significant efficiency gains compared to other methods. A user compared PPT adjustments to vcore offsets (which we'll get to later), and found power savings of nearly 40W.
 
 ![ppt-limit](./ppt-limit.png "Benchmarking and graph done by @vpcf90")
 
-In the event this option is available to you:
+To edit this setting, you'll need to enter the BIOS when booting the computer, which involves mashing some key combination (F1, F2, F3, DEL are common). The boot screen should momentarily display the key combination, so you don't have to guess.
 
-- start at a slight offset (140W or 85W)
-- Run both our cinebench benchmarks. Record scores, temperature, and power usage. 
+For my bios, this option is not available (to give you an idea of its whereabouts, asrock states it'd be under "Advanced\AMD CBS\NBIO Common Options\XFR Enhancement\Accepted\Precision Boot Overdirve\Enable". If you have a screenshot with the PPT setting, I'd love to include it in this guide). In the event this option is available to you:
+
+- Set the PPT at a slight offset (140W for a 105W CPU or 85W for a 65W CPU)
+- Run both Cinebench benchmarks 3 times. Record scores, temperature, and power usage. 
 - Increase the offset until desired threshold.
 
-One can try PPT adjustment coupled with a negative vcore offset for further gains, but mileage may vary.
+One can try PPT adjustment coupled with a [negative vcore offset](#vcore-offset) for further gains, but mileage may vary.
 
 ### Configurable TDP
 
-The next knob to try is definitely hit or miss, even if a BIOS presents the option -- it's changing the TDP of your desired wattage. Have a 95W CPU but want a 65W one? Set the cTDP to 65 (or 65000 depending on the BIOS).
+The next knob to try is definitely hit or miss, even if a BIOS presents the option -- it's changing the TDP to the desired wattage. Have a 95W CPU but want a 65W one? Set the cTDP to 65 (or 65000 depending on the BIOS).
 
 ![bios-tweak-ctdp](./bios-tweak-ctdp.png "Updating the cTDP value to a lower wattage")
 
@@ -125,13 +129,13 @@ But make sure you have your sensors and benchmarks readied. A single run of Cine
 
 One user had fantastic success [setting the cTDP on their 2700X](https://www.reddit.com/r/Amd/comments/9mxs88/ryzen_7_2700x_ctdp_test_15w_vs_35w_vs_65w_vs_auto/), but others weren't so lucky (may have been different motherboards or BIOS versions).
 
-While my 2700 ignored cTDP, I'm assuming that if a chip listed on WikiChip [like the 2400G](https://en.wikichip.org/wiki/amd/ryzen_5/2400g) contained a "cTDP down" section, I'm assuming cTDP will work.
+While my 2700 ignored cTDP (even with turbo boost disabled), I'm assuming if a chip is listed on AMD's site or WikiChip containg a "cTDP down", [like the 2400G](https://en.wikichip.org/wiki/amd/ryzen_5/2400g), then cTDP will work.
 
 ### Vcore offset
 
-Don't get discouraged if nothing has worked thus far, through setting a vcore offset one may be able to achieve the truest form of undervolting: lower powered consumption without a loss in performance. The best thing is that most motherboards should support this: asrock, [MSI](https://www.overclock.net/forum/13-amd-general/1718046-msi-finally-added-offset-mode.html), asus, biostar, and potentially some gigabytes.
+Don't get discouraged if nothing has worked thus far, through setting a vcore offset one may be able to achieve the truest form of undervolting: lower power consumption without a loss in performance. The best thing is that most motherboards should support this: asrock, [MSI](https://www.overclock.net/forum/13-amd-general/1718046-msi-finally-added-offset-mode.html), asus, biostar, and potentially some gigabytes.
 
-Below is a screenshot of adjusting the value in millivolts.
+Below is a screenshot of adjusting the offset value in millivolts.
 
 ![bios-vcore-offset](./bios-vcore-offset.png "Seting the CPU Vcore Voltage offset")
 
@@ -139,13 +143,21 @@ While I normally recommend setting the value in increments of 10mv, the BIOS can
 
 ![bios-invalid-offset](./bios-invalid-offset.png "A BIOS error message when going sub -100mv offset")
 
-We'll need to be vigilant here to ensure sensible benchmark scores and sensor readings.
+Thus I ran the -50mv offset three times in cinebench, and then moved onto a -100mv offset, which proved stable as well.
 
 #### Results
 
+![google-sheets-voltage-offset](./google-sheets-voltage-offset.png "Results from applying a vcore offset")
+
+- No difference in either Cinbench score
+- ~10W decrease in CPU power usage
+- ~5 degree drop in CPU temperature
+
+This may seem a little underwhelming, but I'm happy to accept this. Our CPU is more efficient and cooler than before and there isn't a performance penalty.
+
 ### Set frequency and voltage
 
-Have you exhausted the other options? If so, time to get discouraged. There will be a sacrifice -- potentially a heavy sacrifice in single threaded performance.
+Have you exhausted the other options? If so, time to get discouraged. There will be a sacrifice -- potentially a heavy sacrifice in single threaded performance. I promised we'd achieve a more dramatic drop in power usage when I mentioned we'd take a 2700 and turn it into a 2700E (vcore offset only netted a 10W efficiency gain), so we'll be entering in set frequency and voltages for the greatest control.
 
 Most if not all motherboards should be capable of accepting an arbitrary frequency and voltage.
 
@@ -157,11 +169,13 @@ Your starting frequency and voltage will depend on your setup:
 - Start the voltage at the default value as well (1V)
 - Decrease voltage by 0.025 until unstable in Cinebench (Cinbench reports an error, crashes, or blue screen) and then decrease frequency by 100MHz
 
-Due note that just changing these two settings may not be enough. Your system may detect the voltage / frequency set, but see that it has plenty of power left in it's budget and turbo beyond that disregarding your intentions. The solution is to disable precision boost. For asrock motherboards this is called Core Performance Boost (CPB)
+Due note that just changing these two settings may not be enough. Your system may detect the new voltage / frequency, but see that it has plenty of power left in it's budget and turbo beyond that disregarding your intentions. The solution is to disable precision boost. For asrock motherboards this is called Core Performance Boost (CPB)
 
 ![bios-core-performance-boost](./bios-core-performance-boost.png "Disabling Core Performance Boost")
 
-Disabling CPB means that cores can't exceed 3.0GHz. Considering the [turbo frequency of a R2700 is is 4.1GHz](https://en.wikichip.org/wiki/amd/ryzen_7/2700) that's a 1.1GHz decrease! 
+Disabling CPB means that cores can't exceed our set frequency (in the screenshots, it's 3.0GHz). Considering the [turbo frequency of a 2700 is 4.1GHz](https://en.wikichip.org/wiki/amd/ryzen_7/2700) that's a 1.1GHz decrease! And since the [2700E has a turbo frequency of 4.0GHz](https://en.wikichip.org/wiki/amd/ryzen_7/2700e), we'll be even slower than 2700E in single thread performance. The only redeeming quality is that our base clocks are 200MHz higher.
+
+Let's benchmark the 0.875mv @ 3.0GHz setup and see where it lands.
 
 #### Results
 
@@ -170,38 +184,57 @@ Disabling CPB means that cores can't exceed 3.0GHz. Considering the [turbo frequ
 - Multi-threaded score dropped ~250 points (8%)
 - Single threaded score dropped ~100 points (25%)
 - CPU power draw dropped ~30W (so we've achieved 2700E levels of power usage)
-- CPU temps dropped 15 degrees
+- CPU temps dropped ~15 degrees
 
-Overall, I'd say this type of undervolting / underclocking isn't worth it. A 25% decrease in single threaded performance is tough to swallow. Unless you built a computer for purely multi-threaded workloads, 
+Overall, I'd say this type of undervolting / underclocking isn't normally worth it. A 25% decrease in single threaded performance is tough to swallow unless you built a computer for purely multi-threaded workloads. Don't get me wrong, even at a 25% decrease, the computer operates normally. And a [youtuber did demonstrate](https://www.youtube.com/watch?v=dU0--0gyxks) that games ran surprisingly well even at an absurd underclock of 800MHz. Just know that there is a tangible cost with this method. 
 
-While running the underclock, I noticed something bizarre when running HWiNFO. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially I thought that this meant the system wasn't idling, but looking at the power reported in HWiNFO told a different story -- that it was able to idle.
+An interesting note, while running the underclock, HWiNFO seemed to be in a bizarre state. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially, I thought that this meant the system wasn't idling, but HWiNFO power usage reported values that contradicted this thought. Power usage was at idle, but clocks were at 3GHz.
 
 ![hwinfo-clocks-misreporting](./hwinfo-clocks-misreporting.png "Inconsistency in hwinfo sensor reporting")
 
-This is where our wattmeter comes into play. I saw that it was reporting idle power usage, so I determined that HWiNFO may have been misreporting detected clock speeds. This is why one must stay 
+This is where our wattmeter comes into play. I saw that wattmeter was also reporting idle power usage (this is why we measure at idle!), so I could rest easy knowing that system could idle. This is why one must stay vigilant to ensure our sensors, wattmeter, and spreadsheet align. 
 
-## Ryzen Master
+## Conclusion
+
+All this info can be overwhelming, but to distill this down with the example used throughout this guide (ryzen 2700 and asrock B450 itx motherboard):
+
+- PPT option was not available in BIOS
+- cTDP had no effect
+- A max vcore offset of -100mv saw a 10W drop in CPU power draw and a modest 5 degrees temperature reduction without performance regressions
+- Undervolting to 0.875mv and underclocking to 3Ghz saw a more dramatic decrease in power usage (down to 48W) but came with a 25% performance drop in single threaded workloads, which is hard to tolerate.
+
+I decided on vcore offset being the most appropriate undervolt for me.
+
+Your conclusion **will** differ. Happy undervolting.
+
+## FAQ
+
+### What about Ryzen Master?
 
 Any guide on Ryzen undervolting would be remiss if it didn't at least mention AMD's [Ryzen Master](https://www.amd.com/en/technologies/ryzen-master). It's a useful tool for a couple of reasons:
 
-- Tweak values at runtime without a restart (some values may require a restart)
+- Tweak values at runtime without a restart (though some may still require a restart)
 - Create multiple profiles: one for gaming, one for rendering footage
 - A second data point for determining what one can edit in the BIOS. For instance, if you are unable to edit PPT in the BIOS and unable to edit it in Ryzen Master (shown below) -- you'll have to skip PPT undervolting.
 
-But I'm unable to fully utilize Ryzen Master, as I'm a developer that works on virtual machines, and Ryzen master doesn't can't work alongside CPU virtualization (enabled in the BIOS), and it'll throw some error about Ryzen Master only able to run with Virtualization Based Security disabled.
+![ryzen-master](./ryzen-master.png "Ryzen Master with PPT adjustments disabled")
+
+But there are some caveats with Ryzen Master: Windows only and CPU virtualization must be disabled in the BIOS. I'm a developer that works on virtual machines, so it'll throw some error about Ryzen Master only able to run with Virtualization Based Security disabled.
 
 ![ryzen-master-vm](./ryzen-master-vm.png "Error when trying to use Ryzen Master with Virtualization")
 
 So for those on Windows who don't have virtual machines and don't mind installing Ryzen Master, it can be a helpful tool.
 
-## Stress Tests
+### What about stress tests?
 
-Potentially the most controversial aspect of this guide is the nonchalant nod I'll be giving stress tests. I can't omit them, as else this guide may feel inadequate, but I won't emphasize their necessity. People will disagree about which stress tests should be ran, how they should be ran, the durations of the tests, and anyone not following their formula is sacrificing stability. Instead, I believe one should craft their own stress scenario filled with realistic workloads. For me, that's compiling, video encoding, and gaming.
+Potentially the most controversial aspect of this guide is the nonchalant nod I'll be giving stress tests. I can't omit them, as else this guide may feel inadequate, but I won't emphasize their necessity. People will disagree about which stress tests should be ran, how they should be ran, the durations of the tests, and anyone not following their formula is sacrificing stability. Instead, I believe one should craft their own stress scenario filled with realistic workloads they perform on a day to day basis. For me, that's compiling, video encoding, and gaming.
 
-So after you've settled on your undervolt you can tease out instability issues by running your stress test, and you should already feel pretty confident about stability as Cinebench R20 should have completed multiple times at a given undervolt. If stability is desired even during unrealistic workloads, then stress test program like [Prime95](https://www.mersenne.org/download/#stresstest) can be used.
+So after you've settled on your undervolt you can tease out instability issues by running your stress test, and you should already feel pretty confident about stability as Cinebench R20 should have completed multiple times at a given undervolt. If stability is desired even during unrealistic workloads, then stress test programs like [Prime95](https://www.mersenne.org/download/#stresstest) can be used.
 
 ![prime-95](./prime-95.png "Running Prime95 tortue test")
 
 The number of torture test threads to run will auto-detect the right number.
 
 Run Prime95's torture test for the desired length of time (some people will measure in minutes while others measure in days).
+
+To please the torture stress test disciples in preparation of this article, I ran my -100mv vcore offset in prime95 for several hours, even though I had already been running the undervolt for several months without stability issues. No issues arose. If they had, and it's bothersome (it isn't to me), the undervolt can be adjusted. The main takeaway here is that you want to be comfortable with your computer -- however you define that.
