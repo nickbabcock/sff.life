@@ -240,3 +240,9 @@ The number of torture test threads to run will auto-detect the right number.
 Run Prime95's torture test for the desired length of time (some people will measure in minutes while others measure in days).
 
 To please the torture stress test disciples in preparation of this article, I ran my -100mv vcore offset in prime95 for several hours, even though I had already been running the undervolt for several months without stability issues. No issues arose. If they had, and it's bothersome (it isn't to me), the undervolt can be adjusted. The main takeaway here is that you want to be comfortable with your computer -- however you define that.
+
+## Discussion
+
+This article has been discussed at the following external sites
+
+- [Reddit](https://www.reddit.com/r/sffpc/comments/djmel7/how_to_undervolt_your_ryzen_cpu/)
