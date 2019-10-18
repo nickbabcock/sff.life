@@ -14,6 +14,7 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          meta={[{property: 'og:image', content: post.frontmatter.thumbnail.childImageSharp.fluid.src}]}
         />
         <article>
           <header>
@@ -50,6 +51,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1200, maxHeight: 627, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
