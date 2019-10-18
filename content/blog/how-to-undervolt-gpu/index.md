@@ -55,7 +55,7 @@ First we'll measure idle for completeness:
 - Wait for the system to settle down (ie, the wattmeter converges to a reading)
 - Record what's being pulled from the wall, and max sensor info from HWiNFO.
 
-Then benchmark the gpu for timespy, the score you are interested in is the graphics score. Use the process listed below
+Then benchmark the gpu with timespy. The score you are interested in is the graphics score. Use the process listed below
 
 ![timespy-score](./timespy-score.png "Timespy score we're interested in")
 
