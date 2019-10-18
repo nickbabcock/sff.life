@@ -181,12 +181,14 @@ Let's benchmark the 0.875mv @ 3.0GHz setup and see where it lands.
 
 ![google-sheets-underclock](./google-sheets-underclock.png "Results of underclocking and undervolting")
 
-- Multi-threaded score dropped ~250 points (8%)
-- Single threaded score dropped ~100 points (25%)
+- Multi-threaded score dropped ~250 points (8%) to around 3030
+- Single threaded score dropped ~100 points (25%) to around 303
 - CPU power draw dropped ~30W (so we've achieved 2700E levels of power usage)
 - CPU temps dropped ~15 degrees
 
 Overall, I'd say this type of undervolting / underclocking isn't normally worth it. A 25% decrease in single threaded performance is tough to swallow unless you built a computer for purely multi-threaded workloads. Don't get me wrong, even at a 25% decrease, the computer operates normally. And a [youtuber did demonstrate](https://www.youtube.com/watch?v=dU0--0gyxks) that games ran surprisingly well even at an absurd underclock of 800MHz. Just know that there is a tangible cost with this method. 
+
+I wish I could say more about how the undervolted scores compare to other CPUs at stock especially the 2700E. The best I can do is take a [list of unofficial scores](https://www.cgdirector.com/cinebench-r20-scores-updated-results/) coupled with [smattering of official scores](https://www.anandtech.com/show/14053/maxon-releases-cinebench-r20-benchmark) and say that in the multi-threaded benchmark, we land around the 2600X mark while handily beating the i7-7700K (both 95W TDP). The single thread score is about equal to i7-4850HQ's, a 4C/8T mobile processor with a 47W TDP.
 
 An interesting note, while running the underclock, HWiNFO seemed to be in a bizarre state. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially, I thought that this meant the system wasn't idling, but HWiNFO power usage reported values that contradicted this thought. Power usage was at idle, but clocks were at 3GHz.
 
