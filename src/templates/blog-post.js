@@ -7,14 +7,31 @@ import SEO from "../components/seo";
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
-    const siteTitle = this.props.data.site.siteMetadata.title;
+    const meta = this.props.data.site.siteMetadata;
+    const siteTitle = meta.title;
+    const img = post.frontmatter.thumbnail.childImageSharp.fluid;
+
+    // og:images must be absolute paths
+    const imgLoc = `${meta.siteUrl}${img.src}`;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
-          meta={[{property: 'og:image', content: post.frontmatter.thumbnail.childImageSharp.fluid.src}]}
+          meta={[{
+                property: 'og:image',
+                content: imgLoc
+            }, {
+                property: 'og:image:width',
+                content: img.presentationWidth,
+            }, {
+                property: 'og:image:height',
+                content: img.presentationHeight,
+            }, {
+                property: 'og:url',
+                content: `${meta.siteUrl}${post.fields.slug}`
+            }]}
         />
         <article>
           <header>
@@ -41,11 +58,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
+      fields {
+        slug
+      }
       html
       frontmatter {
         title
@@ -54,6 +75,8 @@ export const pageQuery = graphql`
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1200, maxHeight: 627, quality: 90) {
+              presentationWidth
+              presentationHeight
               ...GatsbyImageSharpFluid
             }
           }
