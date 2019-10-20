@@ -190,11 +190,11 @@ Overall, I'd say this type of undervolting / underclocking isn't normally worth 
 
 I wish I could say more about how the undervolted scores compare to other CPUs at stock especially the 2700E. The best I can do is take a [list of unofficial scores](https://www.cgdirector.com/cinebench-r20-scores-updated-results/) coupled with [smattering of official scores](https://www.anandtech.com/show/14053/maxon-releases-cinebench-r20-benchmark) and say that in the multi-threaded benchmark, we land around the 2600X mark while handily beating the i7-7700K (both 95W TDP). The single thread score is about equal to i7-4850HQ's, a 4C/8T mobile processor with a 47W TDP.
 
-An interesting note, while running the underclock, HWiNFO seemed to be in a bizarre state. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially, I thought that this meant the system wasn't idling, but HWiNFO power usage reported values that contradicted this thought. Power usage was at idle, but clocks were at 3GHz.
+An interesting note, while running the underclock, HWiNFO seemed to report bizarre numbers. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially, I thought that this meant the system wasn't idling, but HWiNFO power usage reported values that contradicted this thought. Power usage was at idle, but clocks were at 3GHz.
 
-![hwinfo-clocks-misreporting](./hwinfo-clocks-misreporting.png "Inconsistency in hwinfo sensor reporting")
+![hwinfo-clocks-misreporting](./hwinfo-clocks-misreporting.png "Max frequency but low power usage!?")
 
-This is where our wattmeter comes into play. I saw that wattmeter was also reporting idle power usage (this is why we measure at idle!), so I could rest easy knowing that system could idle. This is why one must stay vigilant to ensure our sensors, wattmeter, and spreadsheet align. 
+This is where our wattmeter comes into play. I saw that wattmeter was also reporting idle power usage (this is why we measure at idle!), so I could rest easy knowing that the CPU wasn't burning through electricity needlessly. In general, the workload that the CPU is executing when at a given frequency will effect the power consumption. If the CPU isn't performing any actions at 3GHz, it won't consume significant power. This is known as the [activity factor](http://www.siliconintelligence.com/people/binu/perception/node13.html). Even without knowing about activity factory we can use multiple tools to determine the state of our computer.
 
 ## Conclusion
 
