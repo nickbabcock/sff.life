@@ -132,6 +132,6 @@ I'm also excited for boards to phase out the 24pin connection all together or of
 - The distro kit for the S4M allows for those with non-existant wiring skills (like yours truly) dip their toes into the 12v ecosystem
 - J-HACK has excellent customer support
 - Distro 400 powers the CPU
-- Neither the distro 400 or the plugin unit can power a cpu that pull more than 144W
+- Neither the distro 400 or the plugin unit can power a cpu that pulls more than 144W
 
 Definitely gets recommendation from me. If you are more comfortable with wiring or a have a custom layout, you can buy the distro 400 and plugin unit standalone.
