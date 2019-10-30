@@ -1,6 +1,6 @@
 ---
 title: A look at J-HACK's ONE2 plugin and distro
-date: "2019-10-22"
+date: "2019-10-30"
 thumbnail: ./one2-plugin-spotlight.jpg
 description: "J-HACK, the company behind an increasingly rich portfolio of small cases and 12v solutions, produces the ONE2 plugin (DC-ATX power) and ONE2 distro 400 (DC-DC distributor). I picked up these in a kit designed specifically for the Skyreach 4 Mini, and have been running them for a couple months, and believe these could be the future."
 ---
@@ -15,14 +15,13 @@ This kit breaks the traditional ATX power supply into three components:
 - The DC-DC distributor that [filters](https://en.wikipedia.org/wiki/Filter_capacitor) and powers the GPU, CPU, and plugin unit (ONE2 Distro 400)
 - The ATX-DC plugin unit that powers the motherboard, RAM, and hard drives (ONE2 Plugin 160)
 
-Be warned: this'll be a pretty niche article, and small form factor builds are already a niche inside the niche of pc building, but I want to start shedding light on artisan sff creations I own.
+Be warned: this'll be a pretty niche article, and small form factor builds are already a niche inside the niche of pc building, but I want to start shedding light on sff creations I'm proud to own.
 
 Splitting the components of a psu into dedicated pieces is unconvential, but nothing new. This power delivery method is how laptops work. Even in the desktop space, the PicoPSU plugin unit + brick has been around for at least a decade.
 
 ![pico-psu](./PicoPSU-160-ACDC-192w-b.jpg "The ever popular PicoPSU + brick. Image from mini-box.com")
 
-But we're not here to look at laptops or the PicoPSU brand. We're here to for [J-HACK](https://j-hackcompany.com/), the company behind an increasingly rich portfolio of small cases and 12v solutions.
-
+But we're not here to look at laptops or the PicoPSU brand. We're here for [J-HACK](https://j-hackcompany.com/), the company behind an increasingly rich portfolio of small cases and 12v solutions.
 
 ## The build
 
@@ -34,15 +33,17 @@ There was a small hiccup in shipping. While assembling in the S4M there appeared
 
 ![power-entry](./power-entry.jpg "The missing 6 to 8 pin adapter with 3d printed entry attachment")
 
-The only other area that gave me problems is that there are multiple CPU EPS connectors included in the kit. One is for plugin unit and the other one for the distro unit. I made the mistake of powering the CPU from the plugin unit. While the PC would operate normally, if I would put it to sleep and wake it up, it would cause a restart with CMOS cleared and BIOS reset. Not ideal. Eventually with a bit of help from J-HACK, I figured out the distro 400 should be powering the cpu (pictured below). If instructions clarifying this were included in the package or online, this may have been a non-issue.
+The only other area that gave me problems is that there are multiple CPU EPS connectors included in the kit. One is for the plugin unit and the other one for the distro unit. I made the mistake of powering the CPU from the plugin unit. While the PC would operate normally, if I would put it to sleep, waking would cause a restart with CMOS cleared and BIOS reset. Not ideal. Eventually with a bit of help from J-HACK, I figured out the distro 400 should be powering the cpu (pictured below). If instructions clarifying this were included in the package or online, this may have been a non-issue.
 
 ![cpu-eps-connection](./cpu-eps-connection.jpg "Connect cpu power from the distro 400 (route outlined), not the plugin unit")
 
-To be fair though, connecting power to the cpu from the distro unit is shown in [J-HACK's ONE2 distro 400 youtube video](https://www.youtube.com/watch?v=IyIMXIN_xtY) and the [Installing Distro 400 in the S4M video](https://www.youtube.com/watch?v=J0YQKhOB0Ew), but I feel that unless one searched for those videos one wouldn't know they exist.
+To be fair though, connecting power to the cpu from the distro unit is shown in [J-HACK's ONE2 distro 400 youtube video](https://www.youtube.com/watch?v=IyIMXIN_xtY) and the [Installing Distro 400 in the S4M video](https://www.youtube.com/watch?v=J0YQKhOB0Ew), but I feel that unless one searched for those videos one wouldn't know they exist. My recommendation would be to include a link to these resources in the order confirmation email or on the product page.
 
-No more problems after that, but something to be aware of is the wire that synchronizes the on and off functions of the mosfets between the plugin and distro unit. I've highlighted it down below. In the actual build, the included extension is needed, and there doesn't seem to be strong retention mechanism, so the line often disconnects at when moving things around. The line hasn't disconnected on it's own, as far as I know. If it does become a problem, one can ignore the line by moving a jumper on the distro unit so that it is always outputting 12v.
+No more problems after that, but something to be aware of is the wire that synchronizes the on and off functions of the mosfets between the plugin and distro unit. I've highlighted it down below. In the actual build, the included extension is needed, and there doesn't seem to be strong retention mechanism, so the line often disconnects when moving things around. The line hasn't disconnected on it's own, as far as I know. If it does become a problem, one can ignore the line by moving a jumper on the distro unit so that it is always outputting 12v.
 
 ![one2-plugin-distro](./one2-plugin-distro.jpg "SYNC line highlighted")
+
+The SYNC line is not needed when only using one part of the combo: the distro unit **or** the plugin unit. For instance, the plugin unit can be used standalone for APU / iGPU builds, and the distro unit can be used standalone for motherboards that accept a 12v input directly (eg: some server motherboards).
 
 After getting the missing piece and doing some light problem solving, this system has been rock solid and has been my daily driver ever since for now nearly three months. Both the ONE2 Plugin 160 and Distro 400 are quality units that have been through their paces: torture tests, undervolting, overclocking, etc. I have no reservation about recommending these.
 
@@ -68,6 +69,8 @@ Not everything that was packaged was necessary for the build. Here are the compo
 
 ![the-extras](./the-extras.jpg "Unused components in the ONE2 distro S4M kit")
 
+From left to right:
+
 - SATA power cables. I'm a staunchly M.2 only. But these cables would tie into the ONE2 plugin unit. In case you are tempted to wire this for a NAS, the plugin unit may [lack enough juice for more than two 3.5" HDD spinning up](https://smallformfactor.net/forum/threads/one2-distro-400-a-12v-power-distribution-board.7687/page-15#post-141248).
 - DC jack for use with other bricks. Though I believe one would need a 4 to 8 pin adapter to connect it the distro unit. One *should* also be able to connect the plugin unit directly to this DC jack for scenarios where the distro 400 is unneeded (APU / iGPU builds).
 - ONE2 plugin to CPU 4pin connector. From my experience, this should only be used in situations where the distro 400 is unused (APU / iGPU builds)
@@ -78,14 +81,11 @@ So far we've seen what the ONE2 distro kit for the S4M contains and how to build
 
 ![one2-plugin-spotlight](./one2-plugin-spotlight.jpg "Consolidate 24 wires with a plugin unit")
 
-These units take advantage of the 
-legacy baked into the ATX12V 2.0 spec, which was introduced in 2003 and dictates that most of the power is provided by the 12V rail with 3.3V and 5V rails significantly reduced. I don't have a computer engineering background, so it seems a bit incredulous, but plugin units work flawlessly and I love them. It's a lot easier to make 4 wires bend than 24 wires.
+If I'm not mistaken, J-HACK sources the manufacturing of the ONE2 plugin and distro from [PicoBox](http://www.pico-box.com/en/), but has the units customized to stand out with aesthetics (black pcb, 3d printed covering for the distro) and other features such that the plugin unit [properly supports 75w cpu + 75w gpu](https://smallformfactor.net/forum/threads/news-about-pico-psu.11225/#post-158472).
 
-If I'm not mistaken, J-HACK sources the manufacturing of the ONE2 plugin and distro from [PicoBox](http://www.pico-box.com/en/), but has the units customized to stand out with aesthetics (black pcb, 3d printed covering for the distro) and other features with the plugin unit [properly supporting 75w cpu + 75w gpu](https://smallformfactor.net/forum/threads/news-about-pico-psu.11225/#post-158472) and the distro 400 is in a league of its own.
+The plugin and distro units operate at 12v. Computer components are mostly powered by 12v (since ATX12V 2.0 in 2003), so the plugin and distro don't need to allocate space and cost for a step down converter to 12v. This allows them to be slim and minimal compared to wide input DC units (à la 16-24v wide HDPlex), which are much beefier in size and tend to cost more. Of course, the 12v ecosystem isn't all rosy, the reason why there exists wide input DC units is that it allows them to be compatible with a wide range of bricks. Since there are a lot more laptops sold (specifically 19v laptops -- [see why](https://electronics.stackexchange.com/a/31621)) than SFF power supplies, it is understandable why one would want to leverage those bricks. And with the downsizing of bricks that's been happening over the last couple years, the bulk of a 19v input DC unit is reclaimed with a [slim 19v brick](https://www.dell.com/en-us/work/shop/dell-240-watt-ac-adapter-for-precision-7730/apd/450-ahhe/pc-accessories?ref=p13n_ena_pdp_vv&c=us&cs=04&l=en&s=bsd).
 
-Since the plugin and distro units are 12v and the computer components use 12v, the plugin and distro don't need any additional elements to step down voltage. This allows them to be slim and minimal compared to 16-24v wide input DC units (à la HDPlex), which require the additional space and cost for the step down. Of course, the 12v ecosystem isn't all sunshine and roses, the reason why there exists wide input DC units is that it allows them to be compatible with a wide range of bricks. Since there are a lot more laptops sold (specifically the 19v laptops -- [see why](https://electronics.stackexchange.com/a/31621)) than SFF power supplies, it is understandable why one would want to leverage those bricks. And with the downsizing of bricks that's been happening over the last couple years, the bulk of a 19v DC converter is reclaimed with a [slim 19v brick](https://www.dell.com/en-us/work/shop/dell-240-watt-ac-adapter-for-precision-7730/apd/450-ahhe/pc-accessories?ref=p13n_ena_pdp_vv&c=us&cs=04&l=en&s=bsd).
-
-I'm bullish on 12v, though. See [A Guide to 12V PSU](https://smallformfactor.net/forum/threads/a-guide-to-12v-psu.1270/) that J-HACK wrote for some of the reasons why 12v is the future. My philosophy is that the end goal is brickless and choosing the smallest internal DC components is the step in the right direction. As an extreme example, but useful for inspiration, one user made a [brickless 8700k and 1080](https://smallformfactor.net/forum/threads/brickless-s4m-w-gtx1080-and-i8700k-dual-psu-completed.7519/page-7#post-138147) in the S4M with a couple internal 12v Meanwell AC-DC units + a 19v HDPlex DC-ATX. 
+I'm bullish on 12v, though. See [A Guide to 12V PSU](https://smallformfactor.net/forum/threads/a-guide-to-12v-psu.1270/) that J-HACK wrote for some of the reasons why 12v is the future; basically a 12v future is more power and space efficient than alternatives. My philosophy is that the end goal is brickless and choosing the smallest internal DC components is the step in the right direction.
 
 ![distro-400-only](./distro-400-only.jpg "J-HACK ONE2 Distro 400 -- small and flexible")
 
@@ -100,15 +100,15 @@ Due note that the CPU EPS connector on both the distro and plugin unit is 4pin o
 
 ![cpu-power-usage](./cpu-power-usage.png "CPUs power usage. Image from www.anandtech.com")
 
-On the bright side, the graph shows the distro 400 would be able to power a 2700x and 3900x. Realistically before running into a power issue, you'd run into a cooling issue as SFF cases aren't known for supporting beefy cooling solutions. And keep in mind these power recordings may have been done in an unrealistic torture test without undervolting, so one can be adventurous and push the limits. Before you get too excited, the 4pin connector from the distro unit can't be combined with the 4pin connector from the plugin unit to form a pseudo-8pin connector.
+On the bright side, the graph shows the distro 400 would be able to power a 2700x and 3900x. Realistically before running into a power issue, you'd run into a cooling issue as SFF cases aren't known for supporting beefy cooling solutions. And keep in mind these power recordings may have been done in an unrealistic torture test without undervolting, so one can be adventurous and push the limits. Before you get too excited, the 4pin CPU EPS connector from the distro unit can't be combined with the 4pin connector from the plugin unit to form a pseudo-8pin connector.
 
 ## The alternatives
 
 I don't necessarily want to launch into a this vs that with other solutions because I like certain aspects of all of them, but I think it is important view my thought process towards SFF power supplies:
 
-- FlexATX: (not compatibile with S4M) I have not encountered a FlexATX psu with a satisfactory noise profile, but their power density and ease of use is hard to argue against.
+- FlexATX: (not compatibile with S4M) I have not encountered a FlexATX psu with a satisfactory noise profile (even with a noctua fan mod), but their power density and ease of use is hard to argue against. If desired, [some](https://www.reddit.com/r/sffpc/comments/bpnjxg/flexatx_psus_jet_engines/envk3zj?utm_source=share&utm_medium=web2x) have [reported](https://www.reddit.com/r/sffpc/comments/dortql/the_velka_3_build/f5pqzj9?utm_source=share&utm_medium=web2x) that the ENP-7660B 600W is quiet at low loads.
 - Dynamo mini and 360 is the 19v cousin to J-HACK's 12v ONE2 combo. Unfortunately, [KMPKT has stalled production](https://smallformfactor.net/forum/threads/dynamo-mini-availability.11063/#post-153595) so long term viability seemed in doubt.
-- [HDPlex 200W DC-ATX](https://hdplex.com/hdplex-200w-dc-atx-power-supply-16v-24v-wide-range-voltage-input.html): An absolute massive plugin unit compared to the ONE2 plugin, which makes it a lot less nimble (I'll have an article forthcoming on this unit). If this had been released earlier in the year I have considered picking this up in combination with a [slim 19v brick](https://www.dell.com/en-us/work/shop/dell-240-watt-ac-adapter-for-precision-7730/apd/450-ahhe/pc-accessories?ref=p13n_ena_pdp_vv&c=us&cs=04&l=en&s=bsd).
+- [HDPlex 200W DC-ATX](https://hdplex.com/hdplex-200w-dc-atx-power-supply-16v-24v-wide-range-voltage-input.html): An absolute massive plugin unit compared to the ONE2 plugin, which makes it a lot less nimble (I'll have an article forthcoming on this unit). If this had been released earlier in the year, I would have considered picking this up in combination with a [slim 19v brick](https://www.dell.com/en-us/work/shop/dell-240-watt-ac-adapter-for-precision-7730/apd/450-ahhe/pc-accessories?ref=p13n_ena_pdp_vv&c=us&cs=04&l=en&s=bsd).
 - [HDPlex 400W DC-ATX](https://hdplex.com/hdplex-400w-hi-fi-dc-atx-power-supply-16v-24v-wide-range-voltage-input.html): This DC-ATX needs a 24pin connector, which most people [recommend getting customized](https://nfc-systems.com/shop-all/skywire) for the S4M, but a recent pinout change [prompted headache](https://www.youtube.com/watch?v=n6gQ5ie2Dw0) for a lot of people. I would have only considered this if my gpu, the 1070 Aero ITX, fit brickless with the 400w AC-DC. Since it doesn't, using the AC-DC converter, which has a fan as an external brick didn't sit right with me.
 - [G-Unique](https://smallformfactor.net/forum/threads/more-g-unique-bto-psus-are-now-available-direct-order.1983/): The most impressive sff psu modder. They make plugin units up to 500W (effectively merging the ONE2 distro 400 and plugin unit in one). While most are happy G-Unique customers, others [haven't had as](https://smallformfactor.net/forum/threads/news-about-pico-psu.11225/#post-160177) nice [as an experience](https://smallformfactor.net/forum/threads/custom_mod-case-sx-sxm.1786/page-41#post-132923). So as lame as a reason as this is, I felt more comfortable with J-HACK, but if you're considering G-Unique, get G-Unique.
 - SFX: (not compatible with S4M). A solid form factor that I'd recommend to most people. With J-HACK releasing their [M2427](https://j-hackcompany.com/?product=j-hack-m2427-for-corsair-sf-series) one can now reduce up to 30 wires down to just 7.
@@ -125,16 +125,16 @@ If a brick is fine for you in theory, but you just wish it was smaller than the 
 
 I'm excited as smaller bricks may remove some of stigma that bricks carry in the community, and allow for more creative case designs.
 
-I'm also excited for boards to phase out the 24pin connection all together or offer multiple power input connections. While mostly relegated to workstation and server motherboards, some (like this [X11SDV-8C+-TLN2F](https://www.supermicro.com/en/products/motherboard/X11SDV-8C+-TLN2F)) are able to receive a 12v DC input directly. Builds like with those can be seriously clean as they don't even need a plugin unit or dc distro board. For example, one user on the sff forums [hooked his Meanwell PSU directly to the board](https://smallformfactor.net/forum/threads/project-pure-3l-apu-case-meanwell-support.8588/page-16#post-148224), so the only cables needed are the power button, and 3 wires for power entry to the psu, the a few wires from psu to the board.
+I'm also excited for boards to phase out the 24pin connection all together or offer multiple power input connections. While mostly relegated to workstation and server motherboards, some (like this [X11SDV-8C+-TLN2F](https://www.supermicro.com/en/products/motherboard/X11SDV-8C+-TLN2F)) are able to receive a 12v DC input directly. Builds like with those can be seriously clean as they don't even need a plugin unit or dc distro board. For example, one user on the sff forums [hooked his Meanwell PSU directly to the board](https://smallformfactor.net/forum/threads/project-pure-3l-apu-case-meanwell-support.8588/page-16#post-148224), so the only cables needed are the power button, 3 wires for power entry to the psu, and the a few wires from psu to the board.
 
 ## Conclusion
 
 - The ONE2 plugin and distro are good looking, compact, and high quality
 - The included 12v brick in the kit is bulky, but also good quality
 - One can replace the brick with an internal 12v AC-DC PSU and reuse the plugin and distro
-- The distro kit for the S4M allows for those with non-existant wiring skills (like yours truly) dip their toes into the 12v ecosystem
+- The distro kit for the S4M allows for those with non-existant wiring skills (like yours truly) to dip their toes into the 12v ecosystem
 - J-HACK has excellent customer support
-- Distro 400 powers the CPU
+- Remember, when the distro and plugin are used together, power the CPU from the distro.
 - Neither the distro 400 or the plugin unit can power a cpu that pulls more than 144W
 
 Definitely gets recommendation from me. If you are more comfortable with wiring or a have a custom layout, you can buy the distro 400 and plugin unit standalone.
