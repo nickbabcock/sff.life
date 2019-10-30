@@ -138,3 +138,9 @@ I'm also excited for boards to phase out the 24pin connection all together or of
 - Neither the distro 400 or the plugin unit can power a cpu that pulls more than 144W
 
 Definitely gets recommendation from me. If you are more comfortable with wiring or a have a custom layout, you can buy the distro 400 and plugin unit standalone.
+
+## Discussion
+
+This article has been discussed at the following external sites
+
+- [Reddit](https://www.reddit.com/r/sffpc/comments/dp5o2y/a_look_at_jhacks_one2_plugin_and_distro/)
