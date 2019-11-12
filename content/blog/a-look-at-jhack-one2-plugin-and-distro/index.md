@@ -13,7 +13,7 @@ This kit breaks the traditional ATX power supply into three components:
 
 - The AC-DC conversion supplied via a brick (Meanwell GST280A12-C6P)
 - The DC-DC distributor that [filters](https://en.wikipedia.org/wiki/Filter_capacitor) and powers the GPU, CPU, and plugin unit (ONE2 Distro 400)
-- The ATX-DC plugin unit that powers the motherboard, RAM, and hard drives (ONE2 Plugin 160)
+- The DC-ATX plugin unit that powers the motherboard, RAM, and hard drives (ONE2 Plugin 160)
 
 Be warned: this'll be a pretty niche article, and small form factor builds are already a niche inside the niche of pc building, but I want to start shedding light on sff creations I'm proud to own.
 
