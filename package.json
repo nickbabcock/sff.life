@@ -6,7 +6,7 @@
   "author": "Nick Babcock <nbabcock19@hotmail.com>",
   "dependencies": {
     "gatsby": "^2.17.13",
-    "gatsby-image": "^2.2.32",
+    "gatsby-image": "^2.2.33",
     "gatsby-plugin-feed": "^2.3.20",
     "gatsby-plugin-manifest": "^2.2.27",
     "gatsby-plugin-postcss": "^2.1.14",
