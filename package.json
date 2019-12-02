@@ -29,7 +29,7 @@
     "sanitize.css": "^11.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.2",
+    "autoprefixer": "^9.7.3",
     "prettier": "^1.19.1"
   },
   "browserslist": [
