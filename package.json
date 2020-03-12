@@ -12,7 +12,7 @@
     "gatsby-plugin-postcss": "^2.1.21",
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-sharp": "^2.4.10",
+    "gatsby-plugin-sharp": "^2.4.11",
     "gatsby-remark-autolink-headers": "^2.1.25",
     "gatsby-remark-copy-linked-files": "^2.1.39",
     "gatsby-remark-images": "^3.1.48",
