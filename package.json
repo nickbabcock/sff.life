@@ -14,7 +14,7 @@
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-remark-autolink-headers": "^2.1.26",
-    "gatsby-remark-copy-linked-files": "^2.1.39",
+    "gatsby-remark-copy-linked-files": "^2.1.40",
     "gatsby-remark-images": "^3.1.50",
     "gatsby-remark-responsive-iframe": "^2.2.33",
     "gatsby-remark-smartypants": "^2.1.23",
