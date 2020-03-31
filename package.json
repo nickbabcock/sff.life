@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.5",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.2"
   },
   "browserslist": [
     "defaults"
