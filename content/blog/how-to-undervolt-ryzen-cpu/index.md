@@ -111,7 +111,11 @@ First try altering the max amount of power delivered to the socket. [From Gamers
 
 To edit this setting, you'll need to enter the BIOS when booting the computer, which involves mashing some key combination (F1, F2, F3, DEL are common). The boot screen should momentarily display the key combination, so you don't have to guess.
 
-For my bios, this option is not available (to give you an idea of its whereabouts, asrock states it'd be under "Advanced\AMD CBS\NBIO Common Options\XFR Enhancement\Accepted\Precision Boot Overdirve\Enable". If you have a screenshot with the PPT setting, I'd love to include it in this guide). In the event this option is available to you:
+Not every bios has this option, but to give you an idea of its whereabouts, asrock states it'd be under "Advanced\AMD CBS\NBIO Common Options\XFR Enhancement\Accepted\Precision Boot Overdirve\Enable". 
+
+![asrock-ppt](./asrock-ppt.jpeg "PPT bios setting. Credit to radianttap")
+
+In the event this option is available to you:
 
 - Set the PPT at a slight offset (140W for a 105W CPU or 85W for a 65W CPU)
 - Run both Cinebench benchmarks 3 times. Record scores, temperature, and power usage. 
