@@ -113,7 +113,7 @@ To edit this setting, you'll need to enter the BIOS when booting the computer, w
 
 Not every bios has this option, but to give you an idea of its whereabouts, asrock states it'd be under "Advanced\AMD CBS\NBIO Common Options\XFR Enhancement\Accepted\Precision Boot Overdirve\Enable". 
 
-![asrock-ppt](./asrock-ppt.jpeg "PPT bios setting. Credit to radianttap")
+![asrock-ppt](./asrock-ppt.jpeg "PPT bios setting. Credit to Aleksandar Vacić")
 
 In the event this option is available to you:
 
