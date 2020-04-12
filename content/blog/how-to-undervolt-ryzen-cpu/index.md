@@ -111,9 +111,13 @@ First try altering the max amount of power delivered to the socket. [From Gamers
 
 To edit this setting, you'll need to enter the BIOS when booting the computer, which involves mashing some key combination (F1, F2, F3, DEL are common). The boot screen should momentarily display the key combination, so you don't have to guess.
 
-Not every bios has this option, but to give you an idea of its whereabouts, asrock states it'd be under "Advanced\AMD CBS\NBIO Common Options\XFR Enhancement\Accepted\Precision Boot Overdirve\Enable". 
+Not every bios has this option, but to give you an idea of its whereabouts, here are some screenshots of motherboards that have this option.
 
-![asrock-ppt](./asrock-ppt.jpeg "PPT bios setting. Credit to Aleksandar Vacić")
+![asrock-ppt](./asrock-ppt.jpeg "asrock PPT bios setting. Credit to Aleksandar Vacić")
+
+![msi-ppt](./msi-ppt.png "msi PPT bios setting. Credit to eadmaster @ github")
+
+![gigabyte-ppt](./gigabyte-ppt.jpeg "gigabyte PPT bios setting. Credit to unsivil @ reddit")
 
 In the event this option is available to you:
 
