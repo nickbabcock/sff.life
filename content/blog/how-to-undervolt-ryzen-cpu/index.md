@@ -115,6 +115,8 @@ Not every bios has this option, but to give you an idea of its whereabouts, here
 
 ![asrock-ppt](./asrock-ppt.jpeg "asrock PPT bios setting. Credit to Aleksandar Vacić")
 
+![asrock-a300-ppt](./asrock-a300-ppt.jpeg "asrock PPT bios setting on deskmini. Credit to eadmaster @ github")
+
 ![msi-ppt](./msi-ppt.png "msi PPT bios setting. Credit to eadmaster @ github")
 
 ![gigabyte-ppt](./gigabyte-ppt.jpeg "gigabyte PPT bios setting. Credit to unsivil @ reddit")
