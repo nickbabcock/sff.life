@@ -17,7 +17,7 @@
     "gatsby-remark-copy-linked-files": "^2.3.6",
     "gatsby-remark-images": "^3.3.12",
     "gatsby-remark-responsive-iframe": "^2.4.6",
-    "gatsby-remark-smartypants": "^2.3.4",
+    "gatsby-remark-smartypants": "^2.3.5",
     "gatsby-source-filesystem": "^2.3.13",
     "gatsby-transformer-remark": "^2.8.17",
     "gatsby-transformer-sharp": "^2.5.6",
