@@ -20,7 +20,7 @@
     "gatsby-remark-smartypants": "^2.3.8",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-transformer-remark": "^2.8.22",
-    "gatsby-transformer-sharp": "^2.5.7",
+    "gatsby-transformer-sharp": "^2.5.9",
     "postcss": "^7.0.32",
     "postcss-import": "^12.0.1",
     "react": "^16.13.1",
