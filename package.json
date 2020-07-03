@@ -10,7 +10,7 @@
     "gatsby-plugin-feed": "^2.5.10",
     "gatsby-plugin-manifest": "^2.4.17",
     "gatsby-plugin-postcss": "^2.3.9",
-    "gatsby-plugin-react-helmet": "^3.3.8",
+    "gatsby-plugin-react-helmet": "^3.3.9",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sharp": "^2.6.17",
     "gatsby-remark-autolink-headers": "^2.3.10",
