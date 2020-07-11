@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "head.html" . -}} 
+    <meta name="Description" content="{{.Params.description}}">
+    <meta property="og:title" content="{{.Title}}">
+    {{$thumbImage := .Page.Resources.GetMatch .Params.thumbnail -}}
+    <meta property="og:image" content="{{$thumbImage.Permalink}}">
+    <meta property="og:image:width" content="{{$thumbImage.Width}}">
+    <meta property="og:image:height" content="{{$thumbImage.Height}}">
+    <meta property="og:description" content="{{.Params.description}}">
+    <meta property="og:url" content="{{.Permalink}}">
+    <title>{{.Title}}</title>
+  </head>
+  <body>
+      <div class="layout">
+        {{ partial "header.html" . -}} 
+        <main class="content">
+         <article>
+          <header>
+            <h1 style="margin-bottom: 0">{{.Title}}</h1>
+            <p>{{ .Date.Format "January 02, 2006" }}</p>
+          </header>
+    <section>
+      {{/* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/14 */}}
+      {{ .Content | replaceRE "(<h[1-6] id=\"(.+)\".*>)(.*)(</h[1-6]>)" `${1}<a class="hanchor" href="#${2}">🔗</a> ${3}${4}` | safeHTML }}
+    </section>
+        </article> 
+        </main>
+        {{ partial "footer.html" . -}} 
+      </div>
+  </body>
+</html>

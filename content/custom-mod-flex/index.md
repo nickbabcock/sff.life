@@ -7,7 +7,7 @@ description: "A small shop out of Ukraine, CustomMOD is no stranger to the SFF s
 
 Perhaps one of the longest running, but least discussed purveyor of SFF cases is [CustomMOD](https://www.custmod.com/?lang=en). They've been around for years, slowly churning out new cases, but never seem to be on the forefront -- always a bit fringe. In mid-2018 I decided to purchase [CustomMOD's FLEX 4.5L](https://smallformfactor.net/forum/threads/custom_mod-cases-fx-mini.1771/) with a modified Flex ATX PSU:
 
-![case-front2](./case-front2.jpg "Custom Mod's FLEX / FX Case Front")
+{{< sfffig src="case-front2.jpg" caption="Custom Mod's FLEX / FX Case Front" >}}
 
 Specs:
 
@@ -31,7 +31,7 @@ While I ordered the case over a year ago, I took extensive notes on what cases /
 
 At the time, the smallest case that satisfied all those constraints was CustomMOD's. This may be surprising given flex-atx power supplies are known for how loud they are due to their 40mm fan (Optimum Tech describes them as "[unbearably loud](https://www.youtube.com/watch?v=d5_1x9cWbOE)" and Linus Tech Tips calls them [whiny and loud](https://youtu.be/tFmb5h1lN-w)). The saving grace is that [CustomMOD replaces the fan](https://smallformfactor.net/forum/threads/custom_mod-cases-fx-mini.1771/page-6#post-55733) with Noctua 40mm fan. That convinced me to place an order.
 
-![ss-psu](./ss-psu.jpg "SSP-300SUG modded with Noctua fan by Custom Mod")
+{{< sfffig src="ss-psu.jpg" caption="SSP-300SUG modded with Noctua fan by Custom Mod" >}}
 
 ## Ordering Process
 
@@ -53,7 +53,7 @@ Do note that CustomMOD has apparently moved orders to their website, which may b
 
 ## The Build
 
-![front-panelless](./front-panelless.jpg "CPU view without side panels")
+{{< sfffig src="front-panelless.jpg" caption="CPU view without side panels" >}}
 
 Specs: 
 
@@ -64,13 +64,13 @@ Specs:
 - HP EX920 1TB
 - Modded Seasonic 300w SUG
 
-![back-style](./back-style.jpg "Back of case")
+{{< sfffig src="back-style.jpg" caption="Back of case" >}}
 
 Those unfamiliar with SFF may view the 300w power supply skeptically. It's fine. I've even run this build on 200w of power by undervolting the cpu and gpu ([guide for cpu](/how-to-undervolt-ryzen-cpu/) / [guide for gpu](/how-to-undervolt-gpu/)). And considering the 1070 in the top 10% of [steam hardware](https://store.steampowered.com/hwsurvey/videocard), this makes ATX systems using 600w or greater power supplies seem silly.
 
 The case is very easy to build in. This was my first SFF case and I was expecting to have to spend hours trying to cable manage or figure out any intricacies, after all there was no included instructions!
 
-![gpu-panelless](./gpu-panelless.jpg "GPU view without side panels")
+{{< sfffig src="gpu-panelless.jpg" caption="GPU view without side panels" >}}
 
 I enjoyed this build for several months. It was rock solid. I could fit the case into my backpack and take it on trips. While the power supply fan mod was good, I'm noise sensitive and the fan was still audible and was a minor annoyance to hear it spin up when navigating a web page or watching a video (tasks that are common and don't case cause significant load). I could have tried out different flex PSUs. [Some](https://www.reddit.com/r/sffpc/comments/bpnjxg/flexatx_psus_jet_engines/envk3zj?utm_source=share&utm_medium=web2x) have [reported](https://www.reddit.com/r/sffpc/comments/dortql/the_velka_3_build/f5pqzj9?utm_source=share&utm_medium=web2x) that the ENP-7660B 600W is quiet at low loads, but I felt this would be a wild goose chase for silence.
 
@@ -82,17 +82,17 @@ Below, I'll highlight some non-traditional power supplies like HDPLEX and J-HACK
 
 One alternative to a flex power supply is the [HDPLEX 200w nanoatx combo that I called almost perfect](/hdplex-200w-nanoatx/):
 
-![hdplex-200w-combo](../hdplex-200w-nanoatx/200w-nanoatx-combo.jpg "HDPLEX 200w NanoATX combo. Image from hdplex.com")
+{{< sfffig src="200w-nanoatx-combo.jpg" caption="HDPLEX 200w NanoATX combo. Image from hdplex.com" >}}
 
 The combo fit very nicely inside the case. In order to fit the plugin unit, I had to remove the front heat sink. The side panels barely close, so a case (or revision) with a more restrictive CPU cooler height may be unable to fit the HDPLEX plugin unit. The AC-DC unit can mount to the bottom using thermal tape.
 
-![hdplex-demo](./hdplex-demo.jpg "HDPLEX 200w NanoATX in case")
+{{< sfffig src="hdplex-demo.jpg" caption="HDPLEX 200w NanoATX in case" >}}
 
 To remove the pigtail C14 power inlet, one would need to fashion a c14 to flex atx adapter potentially by 3d printing (I'm unaware of a something currently existing).
 
 A significant caveat is that the case won't close without removing the button to disconnect the plugin unit. I was unable to test if removing said button was a permanent action.
 
-![hdplex-button](./hdplex-button.jpg "HDPLEX plugin disconnect button poking through")
+{{< sfffig src="hdplex-button.jpg" caption="HDPLEX plugin disconnect button poking through" >}}
 
 In a subsequent (and larger) revision to the FLEX / FX case, a [user was able to squeeze the hdplex in without removing any heat sink](https://smallformfactor.net/forum/threads/custom_mod-cases-fx-mini.1771/page-16#post-163648). This makes the CustomMOD FX and HDPLEX 200w a nice combo. It's about as plug and play as you can get when replacing the flex psu (just need to tape the AC-DC unit down and create a plate for the C14 inlet). Considering the #1 complaint of flex units is fan noise, a fanless psu solves the problem nicely. A word of caution, the AC-DC unit is susceptible to electrical noise, so it may not be a panacea for noise.
 
@@ -100,11 +100,11 @@ In a subsequent (and larger) revision to the FLEX / FX case, a [user was able to
 
 J-HACK's ONE2 plugin and distro is the 12v alternative to HDPLEX's 19v
 
-![one2-distro](../a-look-at-jhack-one2-plugin-and-distro/distro-400.jpg "J-HACK's ONE2 plugin and distro. Image from j-hackcompany.com")
+{{< sfffig src="distro-400.jpg" caption="J-HACK's ONE2 plugin and distro. Image from j-hackcompany.com" >}}
 
 While this power solution comes as two components (the plugin unit and dc-dc distributor), the plugin unit is significantly smaller than HDPLEX's and J-HACK's combo can power up to 400w. I bought J-HACK's combo tailored for another case, and one of PCIe power connector from the distro to the GPU is too short for demonstration purposes, so the screenshot below is only to get an idea of a build.
 
-![jhack-config](./jhack-config.jpg "Partial J-HACK ONE2 config")
+{{< sfffig src="jhack-config.jpg" caption="Partial J-HACK ONE2 config" >}}
 
 Not pictured: a brick, which provides the AC-DC functionality. Since mid-2018 I've come around. I may not prefer bricks, but I don't mind them. They are totally silent and often high quality.
 

@@ -1,0 +1,15 @@
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {{ $opts := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
+    {{ $blog := resources.Get "css/styles.scss" | toCSS $opts | fingerprint -}}
+    <style>{{ $blog.Content | safeCSS }}</style>
+
+    {{ $icon := resources.Get "sff-icon.png" }}
+    {{ $apple := $icon.Fill "180x180" }}
+    {{ $fav32 := $icon.Fill "32x32" }}
+    {{ $fav16 := $icon.Fill "16x16" }}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $apple.RelPermalink}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $fav32.RelPermalink }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $fav16.RelPermalink }}">
