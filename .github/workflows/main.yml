@@ -20,7 +20,7 @@ jobs:
     - run: npm ci
       
     - name: Install hugo extended
-      run: curl 'https://github.com/gohugoio/hugo/releases/download/v0.73.0/hugo_extended_0.73.0_Linux-64bit.deb' | sudo dpkg -i
+      run: curl -o hugo.deb 'https://github.com/gohugoio/hugo/releases/download/v0.73.0/hugo_extended_0.73.0_Linux-64bit.deb' && sudo dpkg -i hugo.deb
    
     - name: Install wrangler
       run: npm i @cloudflare/wrangler -g
