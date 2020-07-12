@@ -1,3 +1,5 @@
+![ci](https://github.com/nickbabcock/sff.life/workflows/ci/badge.svg)
+
 # SFF.life
 
 Site dedicated to efficient computing.
