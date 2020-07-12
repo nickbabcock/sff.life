@@ -1,11 +1,10 @@
-@import url(sanitize.css);
-@import url(sanitize.css/forms.css);
-@import url(sanitize.css/typography.css);
+@import "sanitize.css/sanitize";
+@import "sanitize.css/forms";
+@import "sanitize.css/typography";
 
 :root {
   --header-color: #663399;
 }
-
 
 .excerpt {
     display: grid;
@@ -77,18 +76,21 @@ footer {
 }
 
 h2 {
-    border-bottom: 4mm ridge rgb(170, 50, 220, .6);
+    border-bottom: 4mm ridge rgba(170, 50, 220, .6);
     display: inline-block;
 }
 
-.gatsby-resp-image-wrapper,
-.shadow-image {
-    box-shadow: #ddd 0px 0px 10px 2px;
+figcaption {
+  font-style: italic;
 }
 
-.gatsby-resp-image-figcaption {
-    text-align: center;
-    font-style: italic;
+figure {
+  text-align: center;
+}
+
+figure img,
+.shadow-image {
+    box-shadow: #ddd 0px 0px 10px 2px;
 }
 
 article blockquote {
@@ -97,3 +99,6 @@ article blockquote {
 	margin-left: 0;
 	margin-right: 0;
 }
+
+.hanchor { font-size: 100%; visibility: hidden; color:silver;}
+h1:hover a, h2:hover a, h3:hover a, h4:hover a { visibility: visible}

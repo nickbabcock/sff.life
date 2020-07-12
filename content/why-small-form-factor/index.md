@@ -9,7 +9,7 @@ As most small form factor enthusiasts, I can trace my orgins from traditional AT
 
 After several years of trying to fill out all the space, I ended up with:
 
-![s340-elite](./s340-elite.jpg "My NZXT S340 Elite before selling it")
+{{< sfffig src="s340-elite.jpg" caption="My NZXT S340 Elite before selling it" >}}
 
 Not bad, but not great -- definitely not small form factor. Clean looks, but I desperately bought high end fans to fill space, which only resulted in a squandered budget. People often opt for larger builds claiming expansion potential, easy to work on, and powerful but I disagree:
 
@@ -20,7 +20,7 @@ Not bad, but not great -- definitely not small form factor. Clean looks, but I d
 
 I couldn't stand it, so I started looking smaller and in that I time, I stumbled across SFF communities, who sometimes (maybe too harshly) [deride especially egegrious builds](https://smallformfactor.net/forum/threads/the-space-inefficiency-thread.471/) (below is a build found for sale):
 
-![inefficient-space](./inefficient-space.jpg "Ugly and space inefficient PC for sale")
+{{< sfffig src="inefficient-space.jpg" caption="Ugly and space inefficient PC for sale" >}}
 
 The best thing about this community is they tend to be creator centric. Lots of people try their hand at designing cases, creative builds, and reviewing components. I fell in love, bought multiple cases and power supplies and have no regrets.
 
@@ -48,7 +48,7 @@ Now onto portability, here's how laptopmag.com describes laptop sizes (emphasis 
 
 Huh, to me sounds like "bulky" and "stays on your desk all day" are significant drawbacks for device that aims to be portable. These aren't laptops you're taking on the go. With battery life measured in minutes, one is tied to an outlet and some models even require two power bricks. The only thing going for these laptops is an integrated screen, and with the advent of portable monitors this is becoming less of a selling point. Since both bulky gaming laptops and SFF PCs can fit in backpacks, I can only give a slight edge to the laptops.
 
-![beefy-laptop](./beefy-laptop.png "The beefy Asus G703Gi with dual power bricks")
+{{< sfffig src="beefy-laptop.png" caption="The beefy Asus G703Gi with dual power bricks" >}}
 
 There is no contest when it comes to noise. Anyone who has used a laptop for a non-trivial task (rendering, compiling, gaming) will admit to a loud, high pitched whine. This can be immensely distracting when working. While headphones are often the prescribed remedy, sometimes I like a nice silent workspace without worrying about fans. Not to mention upgrading the cooling solution on a laptop ranges from difficult to impossible, but for desktop components, one can swap upgrade with relative ease.
 
@@ -64,7 +64,7 @@ The best solution on paper should be eGPUs: have a single thin and light computi
 - [eGPUs are "finicky" and "have a long way to go before it becomes truly plug and play"](https://www.notebookcheck.net/Aorus-RTX-2070-Gaming-Box-with-Dell-XPS-13-9380-Review.413819.0.html)
 - eGPUs are large. The [smallest eGPU is 3.3L](https://www.gigabyte.com/us/Graphics-Card/GV-N2070IXEB-8GC#kf) in size, while [the Velka 3](https://www.velkase.com/products/velka-3) is a full blown case that fits the same GPU in 3.7L. The [number one recommended eGPU](https://egpu.io/best-egpu-buyers-guide/), the Razer Core X, is 14.5L in size -- absolutely absurd. The gold standard for compatibility in the SFF world is the [NCASE M1](https://www.sfflab.com/products/ncase_m1) and that is smaller at 12.6L.
 
-![beefy-egpu](./razer-core-x.jpg "Razer Core X hogging all the desk space")
+{{< sfffig src="razer-core-x.jpg" caption="Razer Core X hogging all the desk space" >}}
 
 eGPUs: slow, expensive, and large.
 

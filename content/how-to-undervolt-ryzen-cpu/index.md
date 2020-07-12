@@ -1,7 +1,7 @@
 ---
 title: How to undervolt your ryzen cpu
 date: "2019-10-18"
-thumbnail: ./ryzen-master.png
+thumbnail: ryzen-master.png
 description: "Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Unfortunately, there are a myriad of different ways to undervolt. This guide will help make the best decision depending on what's available for each system. Along the way we'll record monitoring data and benchmark scores to quantity the effect of undervolting."
 ---
 
@@ -18,7 +18,7 @@ Components we'll be using:
 - Google sheets: A spreadsheet for tracking power usage, benchmarks, any modifications, etc
 - (optional): [P4460 Kill a Watt](http://www.p3international.com/products/p4460.html) electricity usage monitor: to measure output from the wall. This is the only thing that costs money on the list -- you may be able to rent it from a local library or utility company. A wattmeter is not critical, but it'll give us a sense of total component draw that the PSU has to supply. I bought one from my local hardware store.
 
-![kill-a-watt](../how-to-undervolt-gpu/kill-a-watt.png "P4460 Kill a Watt for monitoring electricity usage from the wall")
+{{< sfffig src="kill-a-watt.png" caption="P4460 Kill a Watt for monitoring electricity usage from the wall" >}}
 
 Feel free to swap components out for alternatives, but I'd like to stress two things:
 
@@ -29,7 +29,7 @@ Feel free to swap components out for alternatives, but I'd like to stress two th
 
 I've highlighted all the sensors in HWiNFO that we'll be using during our benchmarking
 
-![hwinfo-sensors](./hwinfo-sensors.png "HWiNFO important sensors highlighted")
+{{< sfffig src="hwinfo-sensors.png" caption="HWiNFO important sensors highlighted" >}}
 
 A few notes:
 
@@ -58,11 +58,11 @@ First we'll measure idle for completeness:
 
 Then benchmark the cpu with Cinebench. We'll need to first configure Cinebench to show the single core benchmark like so:
 
-![cinebench-r20-single](./cinebench-r20-single.png "Show single core benchmark in Cinebench R20")
+{{< sfffig src="cinebench-r20-single.png" caption="Show single core benchmark in Cinebench R20" >}}
 
 After running, record both scores: the CPU and CPU (single core). Use the process listed below
 
-![cinebench-scores](./cinebench-scores.png "Cinebench R20 scores for CPU / CPU (Single Core)")
+{{< sfffig src="cinebench-scores.png" caption="Cinebench R20 scores for CPU / CPU (Single Core)" >}}
 
 - Keep everything closed, except HWiNFO
 - Reset HWiNFO sensors
@@ -74,7 +74,7 @@ After running, record both scores: the CPU and CPU (single core). Use the proces
 
 Here's an example of what I recorded for my initial measurements:
 
-![google-sheets](./google-sheets.png "How I set up my spreadsheet for recording data")
+{{< sfffig src="google-sheets.png" caption="How I set up my spreadsheet for recording data" >}}
 
 - Average Cinebench score: multi-threaded: 3289, single-threaded: 398
 - Max wattmeter reading: 129W
@@ -89,7 +89,7 @@ There are several knobs one can dial for Ryzen undervolting. Unfortunately, not 
 
 Without further ado, this is the basic flow chart you should be checking: select only the first box that's available to your system (if it's unavailable, doesn't work, or doesn't give the results you desire, go to the next box).
 
-![undervolt-preference](./undervolting-preference.png "Techniques one should prefer to undervolt")
+{{< sfffig src="undervolting-preference.png" caption="Techniques one should prefer to undervolt" >}}
 
 If a setting doesn't work, ensure you reset it to its default value so that it doesn't inhibit other settings.
 
@@ -107,19 +107,19 @@ First try altering the max amount of power delivered to the socket. [From Gamers
 
 [Users have reported](https://www.reddit.com/r/Amd/comments/ceakbs/if_you_want_to_save_powerreduce_thermals_reduce/) that adjusting PPT affords significant efficiency gains compared to other methods. A user compared PPT adjustments to vcore offsets (which we'll get to later), and found power savings of nearly 40W.
 
-![ppt-limit](./ppt-limit.png "Benchmarking and graph done by @vpcf90")
+{{< sfffig src="ppt-limit.png" caption="Benchmarking and graph done by @vpcf90" >}}
 
 To edit this setting, you'll need to enter the BIOS when booting the computer, which involves mashing some key combination (F1, F2, F3, DEL are common). The boot screen should momentarily display the key combination, so you don't have to guess.
 
 Not every bios has this option, but to give you an idea of its whereabouts, here are some screenshots of motherboards that have this option.
 
-![asrock-ppt](./asrock-ppt.jpeg "asrock PPT bios setting. Credit to Aleksandar Vacić")
+{{< sfffig src="asrock-ppt.jpeg" caption="asrock PPT bios setting. Credit to Aleksandar Vacić" >}}
 
-![asrock-a300-ppt](./asrock-a300-ppt.jpeg "asrock PPT bios setting on deskmini. Credit to eadmaster @ github")
+{{< sfffig src="asrock-a300-ppt.jpeg" caption="asrock PPT bios setting on deskmini. Credit to eadmaster @ github" >}}
 
-![msi-ppt](./msi-ppt.png "msi PPT bios setting. Credit to eadmaster @ github")
+{{< sfffig src="msi-ppt.png" caption="msi PPT bios setting. Credit to eadmaster @ github" >}}
 
-![gigabyte-ppt](./gigabyte-ppt.jpeg "gigabyte PPT bios setting. Credit to unsivil @ reddit")
+{{< sfffig src="gigabyte-ppt.jpeg" caption="gigabyte PPT bios setting. Credit to unsivil @ reddit" >}}
 
 In the event this option is available to you:
 
@@ -133,7 +133,7 @@ One can try PPT adjustment coupled with a [negative vcore offset](#vcore-offset)
 
 The next knob to try is definitely hit or miss, even if a BIOS presents the option -- it's changing the TDP to the desired wattage. Have a 95W CPU but want a 65W one? Set the cTDP to 65 (or 65000 depending on the BIOS).
 
-![bios-tweak-ctdp](./bios-tweak-ctdp.png "Updating the cTDP value to a lower wattage")
+{{< sfffig src="bios-tweak-ctdp.png" caption="Updating the cTDP value to a lower wattage" >}}
 
 But make sure you have your sensors and benchmarks readied. A single run of Cinebench should let you know if your cTDP has been exceeded and thus ineffective.
 
@@ -147,17 +147,17 @@ Don't get discouraged if nothing has worked thus far, through setting a vcore of
 
 Below is a screenshot of adjusting the offset value in millivolts.
 
-![bios-vcore-offset](./bios-vcore-offset.png "Seting the CPU Vcore Voltage offset")
+{{< sfffig src="bios-vcore-offset.png" caption="Seting the CPU Vcore Voltage offset" >}}
 
 While I normally recommend setting the value in increments of 10mv, the BIOS can be finicky sometimes. I was only able to get "-50mv" and "-100mv" to stick, any other values would cause it to be reset to "Auto" or display an error if -100 was exceeded.
 
-![bios-invalid-offset](./bios-invalid-offset.png "A BIOS error message when going sub -100mv offset")
+{{< sfffig src="bios-invalid-offset.png" caption="A BIOS error message when going sub -100mv offset" >}}
 
 Thus I ran the -50mv offset three times in cinebench, and then moved onto a -100mv offset, which proved stable as well.
 
 #### Results
 
-![google-sheets-voltage-offset](./google-sheets-voltage-offset.png "Results from applying a vcore offset")
+{{< sfffig src="google-sheets-voltage-offset.png" caption="Results from applying a vcore offset" >}}
 
 - No difference in either Cinbench score
 - ~10W decrease in CPU power usage
@@ -171,7 +171,7 @@ Have you exhausted the other options? If so, time to get discouraged. There will
 
 Most if not all motherboards should be capable of accepting an arbitrary frequency and voltage.
 
-![bios-tweak-voltage](./bios-tweak-voltage.png "Hard coding CPU voltage and frequency. 3GHz @ 0.875V")
+{{< sfffig src="bios-tweak-voltage.png" caption="Hard coding CPU voltage and frequency. 3GHz @ 0.875V" >}}
 
 Your starting frequency and voltage will depend on your setup:
 
@@ -181,7 +181,7 @@ Your starting frequency and voltage will depend on your setup:
 
 Due note that just changing these two settings may not be enough. Your system may detect the new voltage / frequency, but see that it has plenty of power left in it's budget and turbo beyond that disregarding your intentions. The solution is to disable precision boost. For asrock motherboards this is called Core Performance Boost (CPB)
 
-![bios-core-performance-boost](./bios-core-performance-boost.png "Disabling Core Performance Boost")
+{{< sfffig src="bios-core-performance-boost.png" caption="Disabling Core Performance Boost" >}}
 
 Disabling CPB means that cores can't exceed our set frequency (in the screenshots, it's 3.0GHz). Considering the [turbo frequency of a 2700 is 4.1GHz](https://en.wikichip.org/wiki/amd/ryzen_7/2700) that's a 1.1GHz decrease! And since the [2700E has a turbo frequency of 4.0GHz](https://en.wikichip.org/wiki/amd/ryzen_7/2700e), we'll be even slower than 2700E in single thread performance. The only redeeming quality is that our base clocks are 200MHz higher.
 
@@ -189,7 +189,7 @@ Let's benchmark the 0.875mv @ 3.0GHz setup and see where it lands.
 
 #### Results
 
-![google-sheets-underclock](./google-sheets-underclock.png "Results of underclocking and undervolting")
+{{< sfffig src="google-sheets-underclock.png" caption="Results of underclocking and undervolting" >}}
 
 - Multi-threaded score dropped ~250 points (8%) to around 3030
 - Single threaded score dropped ~100 points (25%) to around 303
@@ -202,7 +202,7 @@ I wish I could say more about how the undervolted scores compare to other CPUs a
 
 An interesting note, while running the underclock, HWiNFO seemed to report bizarre numbers. Even at idle, it was reporting core clocks to be at their max of 3GHz. Initially, I thought that this meant the system wasn't idling, but HWiNFO power usage reported values that contradicted this thought. Power usage was at idle, but clocks were at 3GHz.
 
-![hwinfo-clocks-misreporting](./hwinfo-clocks-misreporting.png "Max frequency but low power usage!?")
+{{< sfffig src="hwinfo-clocks-misreporting.png" caption="Max frequency but low power usage!?" >}}
 
 This is where our wattmeter comes into play. I saw that wattmeter was also reporting idle power usage (this is why we measure at idle!), so I could rest easy knowing that the CPU wasn't burning through electricity needlessly. In general, the workload that the CPU is executing when at a given frequency will effect the power consumption. If the CPU isn't performing any actions at 3GHz, it won't consume significant power. This is known as the [activity factor](http://www.siliconintelligence.com/people/binu/perception/node13.html). Even without knowing about activity factory we can use multiple tools to determine the state of our computer.
 
@@ -229,11 +229,11 @@ Any guide on Ryzen undervolting would be remiss if it didn't at least mention AM
 - Create multiple profiles: one for gaming, one for rendering footage
 - A second data point for determining what one can edit in the BIOS. For instance, if you are unable to edit PPT in the BIOS and unable to edit it in Ryzen Master (shown below) -- you'll have to skip PPT undervolting.
 
-![ryzen-master](./ryzen-master.png "Ryzen Master with PPT adjustments disabled")
+{{< sfffig src="ryzen-master.png" caption="Ryzen Master with PPT adjustments disabled" >}}
 
 But there are some caveats with Ryzen Master: Windows only and CPU virtualization must be disabled in the BIOS. I'm a developer that works on virtual machines, so it'll throw some error about Ryzen Master only able to run with Virtualization Based Security disabled.
 
-![ryzen-master-vm](./ryzen-master-vm.png "Error when trying to use Ryzen Master with Virtualization")
+{{< sfffig src="ryzen-master-vm.png" caption="Error when trying to use Ryzen Master with Virtualization" >}}
 
 So for those on Windows who don't have virtual machines and don't mind installing Ryzen Master, it can be a helpful tool.
 
@@ -243,7 +243,7 @@ Potentially the most controversial aspect of this guide is the nonchalant nod I'
 
 So after you've settled on your undervolt you can tease out instability issues by running your stress test, and you should already feel pretty confident about stability as Cinebench R20 should have completed multiple times at a given undervolt. If stability is desired even during unrealistic workloads, then stress test programs like [Prime95](https://www.mersenne.org/download/#stresstest) can be used.
 
-![prime-95](./prime-95.png "Running Prime95 tortue test")
+{{< sfffig src="prime-95.png" caption="Running Prime95 tortue test" >}}
 
 The number of torture test threads to run will auto-detect the right number.
 

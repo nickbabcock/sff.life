@@ -1,0 +1,11 @@
+{{- $audio := .Page.Resources.GetMatch (.Get "src") -}}
+
+<figure>
+    <figcaption>{{ .Get "caption" }}</figcaption>
+    <audio
+        controls
+        src="{{ $audio.RelPermalink }}">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+</figure>

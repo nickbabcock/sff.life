@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "head.html" . -}} 
+    <title>SFF Life - efficient computing</title>
+  </head>
+  <body>
+      <div class="layout">
+      {{ partial "header.html" . -}} 
+      {{ .Content }}
+
+      <main class="content">
+      <h2>Articles</h2>
+        {{ range .Pages }}
+          <article class="excerpt">
+            <div class="excerpt-thumbnail">
+              {{- $thumbImage := .Page.Resources.GetMatch .Params.thumbnail -}}
+              {{- $smallImage := $thumbImage.Fill "250x250 Center" -}}
+              <img src="{{ $smallImage.RelPermalink }}" loading="lazy" width="250" class="shadow-image"/>
+            </div>
+            <div class="summary">
+              <header>
+                <h3>
+                  <a href="{{.RelPermalink}}">{{.Title}}</a>
+                </h3>
+                <small>{{ .Date.Format "January 02, 2006" }}</small>
+              </header>
+              <section>
+                <p>{{.Params.description}}</p>
+              </section>
+            </div>
+            </article>
+        {{end}}
+      </main>
+      {{ partial "footer.html" . -}} 
+      </div>
+  </body>
+</html>

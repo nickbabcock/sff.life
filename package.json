@@ -5,48 +5,13 @@
   "version": "0.1.0",
   "author": "Nick Babcock <nbabcock19@hotmail.com>",
   "dependencies": {
-    "gatsby": "^2.24.1",
-    "gatsby-image": "^2.4.13",
-    "gatsby-plugin-feed": "^2.5.11",
-    "gatsby-plugin-manifest": "^2.4.18",
-    "gatsby-plugin-postcss": "^2.3.11",
-    "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-sharp": "^2.6.19",
-    "gatsby-remark-autolink-headers": "^2.3.11",
-    "gatsby-remark-copy-linked-files": "^2.3.11",
-    "gatsby-remark-images": "^3.3.18",
-    "gatsby-remark-responsive-iframe": "^2.4.11",
-    "gatsby-remark-smartypants": "^2.3.10",
-    "gatsby-source-filesystem": "^2.3.18",
-    "gatsby-transformer-remark": "^2.8.25",
-    "gatsby-transformer-sharp": "^2.5.11",
-    "postcss": "^7.0.32",
-    "postcss-import": "^12.0.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
     "sanitize.css": "^11.0.1"
   },
-  "devDependencies": {
-    "autoprefixer": "^9.8.4",
-    "prettier": "^2.0.5"
-  },
-  "browserslist": [
-    "defaults"
-  ],
   "homepage": "https://sff.life",
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nickbabcock/sff.life.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve"
   }
 }

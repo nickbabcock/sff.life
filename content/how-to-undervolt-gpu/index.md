@@ -1,8 +1,8 @@
 ---
 title: How to undervolt your gpu
 date: "2019-10-09"
-thumbnail: ./950mv-core.png
-description: "System running too hot? Power supply not powerful enough or dying? Pushing the power evenlope? Undervolting your most power hungry component, which is more likely than not the GPU, can achieve power savings and reduce temperature all without sacrificing performance. And if you can tolerate single digit performance decreases, temperature and power savings can be tremendous"
+thumbnail: 950mv-core.png
+description: "System running too hot? Power supply not powerful enough or dying? Pushing the power envelope? Undervolting your most power hungry component, which is more likely than not the GPU, can achieve power savings and reduce temperature all without sacrificing performance. And if you can tolerate single digit performance decreases, temperature and power savings can be tremendous"
 ---
 
 Small form factor enthusiasts repeatedly stuff power hungry components into tighter spaces. Sometimes things get too hot, too loud, or too powerful. Or maybe a power supply is starting to fail, etc. Luckily, one can undervolt their most power hungry component, which is more likely than not the GPU, and can achieve power savings with temperature reduction all without sacrificing performance. And undervolting the GPU can be done quite quickly by any layperson.
@@ -18,7 +18,7 @@ Components we'll be using:
 - (optional): [GPU-Z](https://www.techpowerup.com/gpuz/): we'll only be using this tool, which provides a host of GPU information, for determining a GPU's boost clock (but you can consult the manufacturer's website too)
 - (optional): [P4460 Kill a Watt](http://www.p3international.com/products/p4460.html) electricity usage monitor: to measure output from the wall. This is the only thing that costs money on the list -- you may be able to rent it from a local library or utility company. A wattmeter is not critical, but it'll give us a sense of total component draw that the PSU has to supply. I bought one from my local hardware store.
 
-![kill-a-watt](./kill-a-watt.png "P4460 Kill a Watt for monitoring electricity usage from the wall")
+{{< sfffig src="kill-a-watt.png" caption="P4460 Kill a Watt for monitoring electricity usage from the wall" >}}
 
 Feel free to swap components out for alternatives, but I do want to stress the importance of benchmarks, as it's desirable for any potential performance loss to become apparent when running benchmarks at each stage of the undervolt.
 
@@ -30,7 +30,7 @@ Due note that it is easiest to perform undervolting with a PSU that is in good w
 
 I've highlighted all the sensors in HWiNFO that we'll be using during our benchmarking
 
-![hwinfo-gpu-sensors](./hwinfo-gpu-sensors.png "HWiNFO important sensors highlighted")
+{{< sfffig src="hwinfo-gpu-sensors.png" caption="HWiNFO important sensors highlighted" >}}
 
 After a benchmark has concluded, we'll record the two numbers in the max column and then click the highlighted reset button to have a clean slate for our next benchmark run.
 
@@ -57,7 +57,7 @@ First we'll measure idle for completeness:
 
 Then benchmark the gpu with timespy. The score you are interested in is the graphics score. Use the process listed below
 
-![timespy-score](./timespy-score.png "Timespy score we're interested in")
+{{< sfffig src="timespy-score.png" caption="Timespy score we're interested in" >}}
 
 - Keep everything closed, except HWiNFO
 - Reset HWiNFO sensors
@@ -67,7 +67,7 @@ Then benchmark the gpu with timespy. The score you are interested in is the grap
 
 Here's an example of what I recorded for my initial measurements and how I interpreted them:
 
-![google-sheets](./google-sheets.png "How I set up my spreadsheet for recording data")
+{{< sfffig src="google-sheets.png" caption="How I set up my spreadsheet for recording data" >}}
 
 - Average Timespy score: 5976
 - Max wattmeter reading: 241W
@@ -81,9 +81,9 @@ Here's an example of what I recorded for my initial measurements and how I inter
 
 First, determine what target frequency you'd like your GPU to boost to, ideally a number between the GPU's boost clock and max clock. The GPU's boost clock will be listed in the manufacturer's specification and also in [GPU-Z](https://www.techpowerup.com/gpuz/). The GPU's max clock is determined at runtime through [GPU boost](https://www.anandtech.com/show/10325/the-nvidia-geforce-gtx-1080-and-1070-founders-edition-review/15) and will be reported as the "GPU Clock" in HWiNFO64 (make sure it's running while the benchmark are in progress). Below are screenshots from HWiNFO64 and GPU-Z showing the differences between these two numbers.
 
-![gpuz](./gpuz.png "GPU-Z depicting manufacturer's boost clock")
+{{< sfffig src="gpuz.png" caption="GPU-Z depicting manufacturer's boost clock" >}}
 
-![hwinfo-gpu-clock](./hwinfo-gpu-clock.png "HWiNFO depicting GPU's max boost clock")
+{{< sfffig src="hwinfo-gpu-clock.png" caption="HWiNFO depicting GPU's max boost clock" >}}
 
 So from those two screenshots, we can see
 
@@ -100,11 +100,11 @@ The tool for undervolting! Powerful, but can be unintuitive at first.
 
 Ctrl + F to bring up the voltage frequency curve. Find our target voltage of 950mv and take note of the frequency (1809mhz in the screenshot)
 
-![950mv-vf](./950mv-vf.png "Default frequency curve")
+{{< sfffig src="950mv-vf.png" caption="Default frequency curve" >}}
 
 Our target frequency (1860mhz) is greater than 1809mhz by 51mhz, so we switch back to the starting window and increase the core clock by 51mhz.
 
-![950mv-core](./950mv-core.png "Increase core clocks by 51MHz")
+{{< sfffig src="950mv-core.png" caption="Increase core clocks by 51MHz" >}}
 
 This will shift the voltage frequency graph up by 51mhz ensuring a nice smooth ride up the voltage / frequency curve until we hit 1860mhz at 950mv. Then to guarantee we don't exceed 950mv:
 
@@ -119,13 +119,13 @@ This will shift the voltage frequency graph up by 51mhz ensuring a nice smooth r
 
 End result should look like:
 
-![950mv-vf-done](./950mv-vf-done.png "950mv undervolt with +51MHz")
+{{< sfffig src="950mv-vf-done.png" caption="950mv undervolt with +51MHz" >}}
 
 Since no voltage has a clock frequency greater than the frequency at 950mv, Afterburner will ensure that no voltage exceeding 950mv will be delivered to the GPU as there isn't any frequency left to gain.
 
 After our hard work, we'll want to save this as a profile so that we can refer back to it after we inevitably undervolt too far. In addition, after determining what is the best undervolt, we'll want to have that profile loaded on boot, so ensure the windows icon is selected.
 
-![startup](./startup.png "Ensure the windows icon is selected to apply profile on boot")
+{{< sfffig src="startup.png" caption="Ensure the windows icon is selected to apply profile on boot" >}}
 
 ### Rinse and Repeat
 
@@ -150,7 +150,7 @@ If the undervolt is unstable then Timespy won't finish and will display an error
 
 ### Results
 
-![google-sheets-results](./google-sheets-results.png "Spreadsheet tracking the undervolt process")
+{{< sfffig src="google-sheets-results.png" caption="Spreadsheet tracking the undervolt process" >}}
 
 - Undervolted to 875mv at 1860mhz
 - 850mv was not stable
@@ -165,11 +165,11 @@ These are good results that demonstrate that there is no performance loss from u
 
 I decided to double down on undervolting and see just how far we can take this. I repeated all the steps we've taken but with a target frequency set to the GPU's boost clock (1721MHz). Fast forward an hour later and this is the resulting voltage / frequency curve I ended with.
 
-![800mv-vf](./800mv-vf.png "Undervolted to 800mv at 172MHz")
+{{< sfffig src="800mv-vf.png" caption="Undervolted to 800mv at 172MHz" >}}
 
 And for completeness sake, here are all my results across all undervolts.
 
-![google-sheets-results2](./google-sheets-results2.png "Final spreadsheet after additional undervolting")
+{{< sfffig src="google-sheets-results.png" caption="Final spreadsheet after additional undervolting" >}}
 
 - Undervolted to 800mv at 1721mhz
 - Slight decrease to Timespy score (6-7%)
@@ -192,7 +192,7 @@ We've decreased power usage for the GPU considerably (54 watts!), lowered temper
 
 Still not convinced? One thing that I've not mentioned is the noise reduction undervolting brings. Below is a graph from Afterburner that shows % fan speed during a timespy run to be between 50-60%.
 
-![afterburner-fan-rpm](./afterburner-fan-rpm.png "Afterburner showing max fan usage between 50-60% after undervolt")
+{{< sfffig src="afterburner-fan-rpm.png" caption="Afterburner showing max fan usage between 50-60% after undervolt" >}}
 
 I find this incredible. A single fan, ITX GPU at 100% load, below 70°C, under 60% fan max RPM. It's a SFF miracle; a GPU that is small, powerful, and silent.
 
@@ -207,7 +207,7 @@ Undervolting, so underrated.
 - Run timespy or another intensive workload
 - Max GPU Core Voltage should not exceed our undervolt
 
-![hwinfo-check-gpu-core-voltage](./hwinfo-check-gpu-core-voltage.png "HWiNFO showing our 800mv undervolt is respected")
+{{< sfffig src="hwinfo-check-gpu-core-voltage.png" caption="HWiNFO showing our 800mv undervolt is respected" >}}
 
 ### How do I stress test the undervolt?
 

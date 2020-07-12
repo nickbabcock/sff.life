@@ -1,13 +1,13 @@
 ---
 title: HDPLEX 200W NanoATX Combo - Almost Perfect
 date: "2019-11-12"
-thumbnail: ./dc-atx.jpg
+thumbnail: dc-atx.jpg
 description: "Over the years, HDPLEX has been iterating on creating on their 19v plugin, distro board, and ac-dc converter. The latest iteration of their DC-ATX plugin, is both the biggest in terms of power output and size. Combined with the 200w AC-DC, they are almost perfect as HDPLEX is known for their small form factor expertise, customer support, and quality products."
 ---
 
 In the last article I covered [J-HACK's 12v ONE2 plugin and distro](/a-look-at-jhack-one2-plugin-and-distro/). This time it's a cousin: [HDPLEX's 19v 200w NanoATX combo](https://hdplex.com/hdplex-200w-dc-atx-power-supply-16v-24v-wide-range-voltage-input.html).
 
-![hdplex-200w-combo](./200w-nanoatx-combo.jpg "HDPLEX 200w NanoATX combo. Image from hdplex.com")
+{{< sfffig src="200w-nanoatx-combo.jpg" caption="HDPLEX 200w NanoATX combo. Image from hdplex.com" >}}
 
 Quick intro for those new to these types of power supplies. This combo in particular splits the traditional ATX power supply into two components:
 
@@ -16,7 +16,7 @@ Quick intro for those new to these types of power supplies. This combo in partic
 
 The benefit of these power supplies is that they can be smaller and fit in multiple locations. Compared to a SFX psu at (125mm x 63.5mm x 100mm = 0.79L), which are already much smaller than an ATX psu at (150mm x 86mm x 140mm = 1.8L), the HDPLEX 200w AC-DC is the smallest of the bunch at (149.5mm x 52mm x 40 mm = 0.31L) and it has no fan.
 
-![size-comparison](./size-comparison.png "HDPLEX 200w AC-DC compared to SFX and ATX PSUs. From comparesizes.com")
+{{< sfffig src="size-comparison.png" caption="HDPLEX 200w AC-DC compared to SFX and ATX PSUs. From comparesizes.com" >}}
 
 While the 200w won't power top tier graphic cards, you could pair it with a Ryzen 3600 and a GTX 1660 super for a good gaming computer most couldn't complain about. With a little help from undervolting ([guide for cpu](/how-to-undervolt-ryzen-cpu/) / [guide for gpu](/how-to-undervolt-gpu/)) you can even upgrade to the RTX 2060 super.
 
@@ -26,7 +26,7 @@ Other than quality products, HDPLEX also has a reputation of giving overly optim
 
 ## The build
 
-![s4m-build](./s4m-build.jpg "HDPLEX 200w NanoATX combo in a Skyreach 4 Mini")
+{{< sfffig src="s4m-build.jpg" caption="HDPLEX 200w NanoATX combo in a Skyreach 4 Mini" >}}
 
 The 200w combo fits nicely inside the [Skyreach 4 Mini](https://nfc-systems.com/skyreach-4-mini) -- powering a Ryzen 1600 and a GTX 1650. With such a low power setup like this, the 200w combo is nearly overkill. Anyways, pre-orders for the combo went live on August 13th (after a few months of missed estimates and me pestering HDPLEX for updates, of which they were gracious enough to provide), shipped the 28th and was at my doorstep on the 30th. A short pre-order time makes me think that HDPLEX only opens pre-orders once they have all kinks worked out and just need to get an estimate for the factory, which seems preferable to the long lead times and prototype quality when funding via kickstarter.
 
@@ -36,27 +36,27 @@ Building with the units was a breeze. Just about as plug and play as one can get
 
 There was one thing I didn't notice about the unit until the very end when I went to shut the case: the plugin unit is tall.
 
-![close-lip](./close-lip.jpg "HDPLEX 200w DC-ATX barely fits in the S4M as it's so tall")
+{{< sfffig src="close-lip.jpg" caption="HDPLEX 200w DC-ATX barely fits in the S4M as it's so tall" >}}
 
 Thankfully the case closes, but the plugin unit touches the side panels. With the plugin unit's PCB at 32mm tall (total of 45mm with the atx connection), it can be unexpectedly limiting. Since it is taller than [Noctua's 37mm NH-L9i](https://noctua.at/en/products/cpu-cooler-retail/nh-l9i), the unit won't be able to fit in cases that have a hard sub-45mm CPU cooler clearance like the sandwich style [Velkase 3](https://www.velkase.com/products/velka-3). One also has be to be careful when pairing this plugin unit with components that get close to the ram slots, such as CPU coolers like Noctua's [NH-L12S](https://noctua.at/en/products/cpu-cooler-retail/nh-L12s) and [NH-C14S](https://noctua.at/en/products/cpu-cooler-retail/nh-c14s). Both coolers expect at least sub-45mm RAM in low profile mode, which the plugin unit exceeds. So depending on your setup, be prepared to have a backup cooler like [Scythe's Big Shuriken 3](https://www.tweaktown.com/reviews/9058/scythe-big-shuriken-3-cpu-cooler-review/index.html) instead of the NH-L12S.
 
 If the depth of the plugin unit is too much, one can remove the two heat sinks by unscrewing three screws each:
 
-![bare-front](./bare-front.jpg "HDPLEX 200w DC-ATX with front heat sink removed")
+{{< sfffig src="bare-front.jpg" caption="HDPLEX 200w DC-ATX with front heat sink removed" >}}
 
 Removing the heat sinks shrinks the depth of the plugin unit to around 20mm total, a decrease of around 11-12mm. 
 
-![bare-back](./bare-back.jpg "HDPLEX 200w DC-ATX with back heat sink removed")
+{{< sfffig src="bare-back.jpg" caption="HDPLEX 200w DC-ATX with back heat sink removed" >}}
 
 While I've elected to use the plugin unit with the heat sinks attached, it's not required. Keep in mind, HDPLEX makes fanless cases and the plugin unit is prepared for use cases where there's zero airflow. The surrounding airflow from a nearby air cooler is often sufficient. In cases where there is direct airflow, like [Lone's L5](https://loneindustries.com/products/5), removing the heat sinks [is even an endorsed option](https://smallformfactor.net/forum/threads/lone-industries-l5-4-6l-mini-itx.9637/page-27#post-165339).
 
 Taking a look at the heat sink themselves, they are ~5mm in thickness with thermal padding
 
-![thermal-pad](./thermal-pad.jpg "HDPLEX 200w DC-ATX heat sink thermal pads")
+{{< sfffig src="thermal-pad.jpg" caption="HDPLEX 200w DC-ATX heat sink thermal pads" >}}
 
 Something I find almost comical is that the plugin unit is so beefy, it needs a button to apply pressure to the latch onto the ATX connection on the motherboard to disconnect it from the socket:
 
-![disconnect](./disconnect.jpg "HDPLEX 200w DC-ATX disconnect button highlighted")
+{{< sfffig src="disconnect.jpg" caption="HDPLEX 200w DC-ATX disconnect button highlighted" >}}
 
 It works well, press down and rock the plugin lengthwise until it detaches.
 
@@ -70,7 +70,7 @@ So while one may like to poke fun at the size of the plugin unit, it is undeniab
 
 One stumbling block with HDPLEX is the power connection:
 
-![ground-plug](./ground-plug.jpg "HDPLEX 200w C8 connector with ground ring exposed")
+{{< sfffig src="ground-plug.jpg" caption="HDPLEX 200w C8 connector with ground ring exposed" >}}
 
 The HDPLEX bundles a C14 power inlet and an ungrounded C8 inlet with a ground ring terminal (pictured above). I'm disappointed that the AC-DC unit lacks a [C6 inlet](https://en.wikipedia.org/wiki/IEC_60320#Appliance_couplers), especially because the 2019 S4M, which is pictured throughout, [enlarged the power entry cutout to fit a C6 AC inlet](https://nfc-systems.com/shop-all/c6-ac-inlet). To fix this, one would need to acquire and wire a C6 inlet to a [JST ELP-03V](https://www.arrow.com/en/products/elp-03v/jst-manufacturing) connector, use a different case that has a C14 cutout, use the C14 inlet in a pigtail fashion outside the case, cannibalize the C14 wires to a C6, or live with this safety issue. Since my wiring skills are slim to nonexistent and I'm married to the S4M, am I putting myself in harms way without a grounded computer?
 
@@ -82,15 +82,7 @@ The answer is, yes the components and I are less safe than if I had used a C14 c
 
 The is one thing that stops me from giving a warmer recommendation is noise. Seems ironic to complain about noise from a fanless psu, but it's true. There is an unmistakeable electric noise coming from the AC-DC converter. The funny thing is, the noise only occurs while the computer is off or sleeping. There are good days (quiet) and bad days. I've attached clip for your hearing pleasure.
 
-<figure>
-    <figcaption>HDPLEX 200w AC-DC electrical noise when powered off</figcaption>
-    <audio
-        controls
-        src="./psu-noise.wav">
-            Your browser does not support the
-            <code>audio</code> element.
-    </audio>
-</figure>
+{{< sffaudio src="psu-noise.wav" caption="HDPLEX 200w AC-DC electrical noise when powered off" >}}
 
 It's subtle, but constant. I find it distracting when concentrating next to the computer and it's sleeping. I'm thankful I sleep in a separate room, else I may need to unplug the computer. I emailed HDPLEX about the issue (always receiving responses within the hour -- HDPLEX is incredibly attentive) and was told the noise originates from a mosfet charging and discharging and that this behavior can be expected.
 
@@ -100,7 +92,7 @@ The good news is that others have reported no noise whatsoever, and with constan
 
 ### The Labelling Issue
 
-![mislabel](./mislabel.jpg "HDPLEX 200w AC-DC mislabeled as 4pin output on case")
+{{< sfffig src="mislabel.jpg" caption="HDPLEX 200w AC-DC mislabeled as 4pin output on case" >}}
 
 Not going to spend too much time on this, but the AC-DC unit is labelled as having a 4pin 19V DC output, whereas it's actually 6pin. HDPLEX's website correctly identifies it as a 6pin, but since at least [one user made the mistake](https://smallformfactor.net/forum/threads/hdplex-200w-ac-dc-im-surprised-nobody-is-talking-about-this.10684/page-4#post-171815), I figured I'd mention it here in case someone else is confused. 
 
@@ -112,7 +104,7 @@ To me, having a 19v internal AC-DC doesn't make a whole lot of sense as it's cre
 
 In addition to shown components, HDPLEX includes other accessories:
 
-![accessories](./accessories.jpg "HDPLEX 200w NanoATX accessories")
+{{< sfffig src="accessories.jpg" caption="HDPLEX 200w NanoATX accessories" >}}
 
 The accessories are all described on HDPLEX's website but to save a click:
 
