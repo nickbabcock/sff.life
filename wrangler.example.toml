@@ -1,0 +1,10 @@
+name = "sff-life"
+account_id = ""
+workers_dev = false
+zone_id = ""
+type = "webpack"
+route = "sff.life/*"
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"
