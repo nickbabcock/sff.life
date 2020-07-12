@@ -29,4 +29,4 @@ jobs:
       run: hugo
     
     - name: Wrangler Build
-      run: wrangler build
+      run: mv wrangler.example.toml wrangler.toml && wrangler build
