@@ -1,4 +1,4 @@
-{{- $image := .Page.Resources.GetMatch (.Get "src") -}}
+{{- $image := .Page.Resources.GetMatch (.Get "src") | fingerprint -}}
 {{- /* These image sizes were taken from gatsby */ -}}
 {{- $tinyImage := $image.Resize "148x" -}}
 {{- $smallImage := cond (ge $image.Width "295") ($image.Resize "295x") $image -}}
