@@ -4,7 +4,7 @@
     {{ partial "head.html" . -}} 
     <meta name="Description" content="{{.Params.description}}">
     <meta property="og:title" content="{{.Title}}">
-    {{$thumbImage := .Page.Resources.GetMatch .Params.thumbnail -}}
+    {{$thumbImage := .Page.Resources.GetMatch .Params.thumbnail | fingerprint -}}
     <meta property="og:image" content="{{$thumbImage.Permalink}}">
     <meta property="og:image:width" content="{{$thumbImage.Width}}">
     <meta property="og:image:height" content="{{$thumbImage.Height}}">
