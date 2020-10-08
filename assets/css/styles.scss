@@ -102,3 +102,15 @@ article blockquote {
 
 .hanchor { font-size: 100%; visibility: hidden; color:silver;}
 h1:hover a, h2:hover a, h3:hover a, h4:hover a { visibility: visible}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: rgb(152, 163, 173);
+    scrollbar-color: rgb(151, 173, 184) rgb(19, 21, 22);
+    background-color: rgb(19, 21, 22);
+  }
+
+  a {
+    color: rgb(43, 121, 162);
+  }
+}
