@@ -169,7 +169,7 @@ I decided to double down on undervolting and see just how far we can take this. 
 
 And for completeness sake, here are all my results across all undervolts.
 
-{{< sfffig src="google-sheets-results.png" caption="Final spreadsheet after additional undervolting" >}}
+{{< sfffig src="google-sheets-results2.png" caption="Final spreadsheet after additional undervolting" >}}
 
 - Undervolted to 800mv at 1721mhz
 - Slight decrease to Timespy score (6-7%)
