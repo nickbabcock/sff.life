@@ -94,7 +94,27 @@ The good news is that others have reported no noise whatsoever, and with constan
 
 {{< sfffig src="mislabel.jpg" caption="HDPLEX 200w AC-DC mislabeled as 4pin output on case" >}}
 
-Not going to spend too much time on this, but the AC-DC unit is labelled as having a 4pin 19V DC output, whereas it's actually 6pin. HDPLEX's website correctly identifies it as a 6pin, but since at least [one user made the mistake](https://smallformfactor.net/forum/threads/hdplex-200w-ac-dc-im-surprised-nobody-is-talking-about-this.10684/page-4#post-171815), I figured I'd mention it here in case someone else is confused. 
+Not going to spend too much time on this, but the AC-DC unit is labelled as having a 4pin 19V DC output, whereas it's actually 6pin. HDPLEX's website correctly identifies it as a 6pin, but since at least [one user made the mistake](https://smallformfactor.net/forum/threads/hdplex-200w-ac-dc-im-surprised-nobody-is-talking-about-this.10684/page-4#post-171815), I figured I'd mention it here in case someone else is confused.
+
+### The Mounting Issue
+
+The mounting ears on the HDPlex 200W AC-DC unit contains 4 M3 screw pass throughs that align perfectly with the S4M. While the 400W AC-DC unit also has holes that align with the S4M, the 400W AC-DC unit contains threaded holes which one directly screws into. Since the [400w unit contains the](https://hdplex.com/hdplex-internal-400w-ac-dc-adapter-with-active-pfc-and-19vdc-output.html) "Tiny Head M3 [screws] for NFC S4M Back Mounting", it's about as plug-n-play as one can get when it comes to mounting.
+
+We're not so lucky with the 200W, as the it lacks the included hardware to mount. There are a few options:
+
+- Leave the unit free floating. Most won't find it a large concern as previous pictures show that there isn't much room for the unit to jerk about, but it is still allowed to jostle.
+- Mounting Tape. I'd imagine double sided thermal tape works as well. Just beware of a potential for residue to be left behind.
+- Screws and cap (aka acorn) nuts, which I've employed below.
+
+{{< sfffig src="mount.jpg" caption="Securing the AC-DC unit with screws and nuts" >}}
+
+Here is the the hardware I bought to mount it:
+
+- 4 M3 screws: 10mm in length, flat head. 10mm is on the long side, 5-6mm should be enough if just using one set of nuts as the thickness of the case + mounting ear is about 3.5mm.
+- 4 M3 hex nuts
+- 4 M3 cap nuts
+
+Looks decent, right?
 
 ## Additional Thoughts
 
