@@ -85,7 +85,14 @@ figcaption {
 }
 
 figure {
-  text-align: center;
+  max-width: 590px;
+  margin: 0 auto;
+}
+
+// keep aspect ratio so no reflow on native lazy loading responsive images: https://youtu.be/4-d_SoCHeWE
+figure img {
+  max-width: 100%;
+  height: auto;
 }
 
 figure img,

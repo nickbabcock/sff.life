@@ -5,7 +5,7 @@
 {{- $fitImage := cond (ge $image.Width "590") ($image.Resize "590x") $image -}}
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
     <a href="{{ $image.RelPermalink }}">
-    <img style="max-width: 100%" loading="lazy" src="{{ $image.RelPermalink }}"
+    <img loading="lazy" src="{{ $image.RelPermalink }}"
          {{- if or (.Get "alt") (.Get "caption") }}
          alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
          {{- end -}}
@@ -32,7 +32,8 @@
                   , {{ $image.Width}}px
                 {{- end -}}
                 '
-          width='{{cond (ge $image.Width "590") "590" $image.Width}}'
+          width="{{ $image.Width }}"
+          height="{{ $image.Height }}"
     /> <!-- Closing img tag -->
     </a>
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
