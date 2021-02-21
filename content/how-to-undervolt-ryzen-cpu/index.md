@@ -5,7 +5,7 @@ thumbnail: ryzen-master.png
 description: "Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Unfortunately, there are a myriad of different ways to undervolt. This guide will help make the best decision depending on what's available for each system. Along the way we'll record monitoring data and benchmark scores to quantity the effect of undervolting."
 ---
 
-**Note: This is a living guide, corrections, suggestions and additional data points are welcomed**
+**Note: This is a living guide, corrections, suggestions and additional data points are welcomed. [A newer article](/efficiently-run-zen3-on-low-profile-coolers-with-undervolting/) has been published that focusses exclusively on Zen 3 (Ryzen 5000)**
 
 Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Compared to [how to undervolt your gpu](/how-to-undervolt-gpu/), undervolting your CPU can be daunting as the technique to achieve undervolting can change based on your CPU, motherboard vendor, motherboard model, and even motherboard BIOS version. This guide is focussing on undervolting desktop AMD Ryzen chips to keep the scope somewhat in check. Even though there are lots of variables hopefully everyone can find a solution. 
 
