@@ -140,21 +140,35 @@ Quite the large increase but it doesn't get us to the eco mode scores (16100 vs 
 
 ## Per Core Curve Optimizations
 
-Not all cores are created equal. By setting an all core optimizer magnitude, the system's stability is at the mercy of the weakest core. If we determine the best cores we can optimize them even further.
+Not all cores are created equal. By setting an all core optimizer magnitude, the system's stability is at the mercy of the "weakest" core. Weakest is in quotes because often the core that will fail first is our best cores. This is counterintuitive but we can confirm this in two steps.
 
-To determine the best cores in your Ryzen system, open HWiNFO64 and examine core clock sensors. 
+First, to determine the core that failed, we will setup a view of the latest [WHEA errors](https://en.wikipedia.org/wiki/Windows_Hardware_Error_Architecture):
+
+- Open Windows Event Viewer
+- Create a new Custom View (call it anything -- "which core crashed")
+- Create it with the properties shown below:
+
+{{< sfffig src="whea.png" caption="Creating a custom view for WHEA errors" >}}
+
+Then creating and clicking our custom view will show us the error with the processor APIC ID.
+
+{{< sfffig src="whea-error.png" caption="WHEA error showing that core 1 caused the crash" >}}
+
+To calculate the core from the APIC ID, it is almost always `floor(ID / 2)`. If there is concern that this is not how a system's APIC IDs are configured, one method available is to use CPU-Z to dump out system information. 
+
+With the knowledge that core 1 (in this example) causes crashes, we can determine the best cores by opening HWiNFO64 and examining core clock sensors. 
 
 {{< sfffig src="perf.png" caption="HWiNFO64 showing core performance ranked" >}}
 
-In the above we see that cores 1 and 3 are the best, followed by core 0 then core 4. It does appear that HWiNFO has a bit of a UI bug, as I'm not sure what `#1/1` followed by `#1/2` is supposed to represent.
+In the above screenshot, we see that cores 1 and 3 are the best, followed by core 0 then core 4. This confirms the the statement earlier that the best cores are the first to fail as offsets increase. It does appear that HWiNFO has a bit of a UI bug, as I'm not sure what `#1/1` followed by `#1/2` is supposed to represent.
 
-So we take this information back to the BIOS and instead of having an all core curve optimizer, we flip it to per core
+So we take this information back to the BIOS and instead of having an all core curve optimizer, we flip it to per core and set all the offsets to the most recent, stable all core offset.
 
 {{< sfffig src="per-core.jpg" caption="Setting per core modifiers in ASRock's B550 Phantom Gaming ITX" >}}
 
-It's up to you what to do with the information you're newly armed with. Roughly, increase the offset of the best performers while decreasing the the worst if instability is encountered. Results will vary dramatically. If all the cores are about the same, then there will be no difference to going to per core curve optimizations, whereas if a system has one or two bad eggs then those cores can be locked at low offsets with the rest able to rise to their potential.
+This will be the most labor intensive part. I recommend starting with the worst CCX, increase offsets by 5, then 10, etc. Then do the same with the two worst cores on the best CCX -- you shouldn't be able to get quite as far. The best cores won't need to be touched.
 
-This definitely would be the most labor intensive part if one went down this route. There is a tool called [ClockTuner for Ryzen](https://www.guru3d.com/articles-pages/clocktuner-2-for-ryzen-(ctr)-guide,1.html), abbreviated CTR, that can help by automating the process of zeroing in on the best configuration. I'll touch on CTR briefly for a couple reasons:
+There is a tool called [ClockTuner for Ryzen](https://www.guru3d.com/articles-pages/clocktuner-2-for-ryzen-(ctr)-guide,1.html), abbreviated CTR, that can help by automating the process of zeroing in on the best configuration. I'll touch on CTR briefly for a couple reasons:
 
 - CTR version 2.1 is nearly out of paywalled beta and it will brings support for the curve optimizer
 - I want to be conscious about the number of programs I peddle in articles and limit them.
@@ -168,7 +182,9 @@ To give but a glimpse of CTR, it will show how good a core is for overclocking:
 
 These values, when ranked, will match HWiNFO64. Both programs agree that for my 5900x Core 0 (C01) and Core 3 (C04) are the best, but now we have a better idea of exactly how good (or bad) a core is compared to others. While we won't be using CTR in this article, we can use the new found values to make better informed curve optimizer offsets though the exact formula for transcribing these weights to offsets would still involve a system of guesses and checks.
 
-Here's how I look at it. I have a difference of 41 between the top core and bottom (174 - 133). If I can sustain a -20 offset with the worst core then every 7 points difference will translate into an additional offset (ratios of 5 and 6 didn't prove stable). So the best core would have an offset of -25. This formula ended up being stable but only resulted in a 2% increase in Cinebench scores. It's a small step, but a step in the right direction. I eagerly await CTR 2.1 and ASRock's Agesa 1.2 update to see how much of an improvement it will yield over hand optimizations.
+Keep in mind that per core results will vary due to the silicon lottery. If all the cores are about the same quality, there may not be a difference to going to per core curve optimizations.
+
+Setting a per core curve only netted a 2% increase in Cinebench scores. It's a small step, but a step in the right direction. I eagerly await CTR 2.1 and ASRock's Agesa 1.2 update to see how much of an improvement it will yield over hand optimizations.
 
 ## Results
 
