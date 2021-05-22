@@ -16,7 +16,11 @@
             <div class="excerpt-thumbnail">
               {{- $thumbImage := .Page.Resources.GetMatch .Params.thumbnail -}}
               {{- $smallImage := $thumbImage.Fill "250x250 Center" -}}
-              <img src="{{ $smallImage.RelPermalink }}" loading="lazy" width="250" class="shadow-image"/>
+              {{- $smallWebImage := $thumbImage.Fill "250x250 Center webp" -}}
+              <picture>
+                <source type="image/webp" srcset='{{ $smallWebImage.RelPermalink }}'>
+                <img src="{{ $smallImage.RelPermalink }}" loading="lazy" width="250" class="shadow-image"/>
+              </picture>
             </div>
             <div class="summary">
               <header>
