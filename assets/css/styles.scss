@@ -116,7 +116,7 @@ div.highlight > pre {
 }
 
 div.highlight > pre > code {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 @media (prefers-color-scheme: dark) {
