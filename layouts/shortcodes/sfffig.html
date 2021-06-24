@@ -37,7 +37,7 @@
         >
         <img loading="lazy" src="{{ $image.RelPermalink }}"
             {{- if or (.Get "alt") (.Get "caption") }}
-            alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+            alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}"
             {{- end -}}
             srcset='
                 {{- if ge $image.Width "148" -}}
