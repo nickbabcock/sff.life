@@ -7,6 +7,6 @@
   "author": "Nick Babcock <nbabcock19@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "~0.0.11"
+    "@cloudflare/kv-asset-handler": "~0.1.3"
   }
 }
