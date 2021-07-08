@@ -19,7 +19,7 @@
          <article>
           <header>
             <h1 style="margin-bottom: 0">{{.Title}}</h1>
-            <p>{{ .Date.Format "January 02, 2006" }}</p>
+            <p>Published on: <time datetime="{{.Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
           </header>
     <section>
       {{/* https://discourse.gohugo.io/t/adding-anchor-next-to-headers/1726/14 */}}

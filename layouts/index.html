@@ -27,7 +27,7 @@
                 <h3>
                   <a href="{{.RelPermalink}}">{{.Title}}</a>
                 </h3>
-                <small>{{ .Date.Format "January 02, 2006" }}</small>
+                <span>Published on: <time datetime="{{.Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></span>
               </header>
               <section>
                 <p>{{.Params.description}}</p>
