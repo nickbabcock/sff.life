@@ -1,6 +1,7 @@
 import { getAssetFromKV, mapRequestToAsset } from '@cloudflare/kv-asset-handler';
 
-const assetCacheControl = { browserTTL: 8640000 };
+const CACHE_AGE = 8640000;
+const assetCacheControl = { browserTTL: CACHE_AGE };
 
 addEventListener('fetch', event => {
   event.respondWith(handleEvent(event));
@@ -31,7 +32,14 @@ function calcCacheControl(event) {
 async function handleEvent(event) {
   try {
     const cacheControl = calcCacheControl(event);
-    return await getAssetFromKV(event, { mapRequestToAsset, cacheControl });
+    const response = await getAssetFromKV(event, { mapRequestToAsset, cacheControl });
+    const newResponse = new Response(response.body, response)
+    newResponse.headers.set("Strict-Transport-Security", CACHE_AGE);
+    newResponse.headers.set("X-Frame-Options", "SAMEORIGIN");
+    newResponse.headers.set("Content-Security-Policy", "default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'");
+    newResponse.headers.set("X-XSS-Protection", "1; mode=block");
+    newResponse.headers.set("X-Content-Type-Options", "nosniff");
+    return newResponse;
   } catch (e) {
     let pathname = new URL(event.request.url).pathname;
     return new Response(`"${pathname}" not found`, {
