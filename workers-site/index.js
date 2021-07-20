@@ -25,7 +25,7 @@ function calcCacheControl(event) {
     const parsedUrl = new URL(event.request.url)
     const pathname = parsedUrl.pathname
     const extension = pathname.split('.').pop();
-    const isCacheable = ["js", "css", "png", "jpg", "jpeg", "webp"].indexOf(extension) !== -1;
+    const isCacheable = ["js", "css", "png", "jpg", "jpeg", "webp", "ico"].indexOf(extension) !== -1;
     return isCacheable ? assetCacheControl : undefined;
 }
 
