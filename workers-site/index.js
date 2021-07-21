@@ -34,7 +34,7 @@ async function handleEvent(event) {
     const cacheControl = calcCacheControl(event);
     const response = await getAssetFromKV(event, { mapRequestToAsset, cacheControl });
     const newResponse = new Response(response.body, response)
-    newResponse.headers.set("Strict-Transport-Security", CACHE_AGE);
+    newResponse.headers.set("Strict-Transport-Security", `max-age=${CACHE_AGE}`);
     newResponse.headers.set("X-Frame-Options", "SAMEORIGIN");
     newResponse.headers.set("Content-Security-Policy", "default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'");
     newResponse.headers.set("X-XSS-Protection", "1; mode=block");
