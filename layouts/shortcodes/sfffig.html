@@ -11,59 +11,63 @@
     <a href="{{ $image.RelPermalink }}">
       <picture>
         <source type="image/webp"
-        srcset='
-          {{- if ge $image.Width "148" -}}
-            {{ $tinyWebpImage.RelPermalink }} 148w
-          {{- end -}}
-          {{- if ge $image.Width "295" -}}
-            , {{ $smallWebpImage.RelPermalink }} 295w
-          {{- end -}}
-          {{- if ge $image.Width "590" -}}
-            , {{ $fitWebpImage.RelPermalink }} 590w
-          {{- else -}}
-            , {{ $webpImage.RelPermalink}} {{ $webpImage.Width}}w 
-          {{- end -}}
-        '
-        sizes='(max-width: 180px) 148px
-                {{- if ge $image.Width "295" -}}
-                  , (max-width: 320px) 295px
-                {{- end -}}
-                {{- if ge $image.Width "590" -}}
-                  , 590px
-                {{- else -}}
-                  , {{ $image.Width}}px
-                {{- end -}}
-                '
+          srcset='
+            {{- if ge $image.Width "148" -}}
+              {{ $tinyWebpImage.RelPermalink }} 148w,
+            {{- end -}}
+            {{- if ge $image.Width "295" -}}
+              {{ $smallWebpImage.RelPermalink }} 295w,
+            {{- end -}}
+            {{- if ge $image.Width "590" -}}
+              {{ $fitWebpImage.RelPermalink }} 590w
+            {{- else -}}
+              {{ $webpImage.RelPermalink}} {{ $image.Width }}w
+            {{- end -}}
+          '
+          sizes='
+            {{- if ge $image.Width "148" -}}
+              (max-width: 180px) 148px,
+            {{- end -}}
+            {{- if ge $image.Width "295" -}}
+              (max-width: 320px) 295px,
+            {{- end -}}
+            {{- if ge $image.Width "590" -}}
+              590px
+            {{- else -}}
+              {{ $image.Width }}px
+            {{- end -}}
+          '
         >
         <img loading="lazy" src="{{ $image.RelPermalink }}"
-            {{- if or (.Get "alt") (.Get "caption") }}
-            alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}"
+          {{- if or (.Get "alt") (.Get "caption") }}
+          alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" }}{{ end }}"
+          {{- end -}}
+          {{- if ge $image.Width "148" -}}
+          srcset='
+            {{ $tinyImage.RelPermalink }} 148w,
+            {{- if ge $image.Width "295" -}}
+              {{ $smallImage.RelPermalink }} 295w,
             {{- end -}}
-            srcset='
-                {{- if ge $image.Width "148" -}}
-                  {{ $tinyImage.RelPermalink }} 148w
-                {{- end -}}
-                {{- if ge $image.Width "295" -}}
-                  , {{ $smallImage.RelPermalink }} 295w
-                {{- end -}}
-                {{- if ge $image.Width "590" -}}
-                  , {{ $fitImage.RelPermalink }} 590w
-                {{- else -}}
-                  , {{ $image.RelPermalink}} {{ $image.Width}}w 
-                {{- end -}}
-            '
-            sizes='(max-width: 180px) 148px
-                    {{- if ge $image.Width "295" -}}
-                      , (max-width: 320px) 295px
-                    {{- end -}}
-                    {{- if ge $image.Width "590" -}}
-                      , 590px
-                    {{- else -}}
-                      , {{ $image.Width}}px
-                    {{- end -}}
-                    '
-              width="{{ $image.Width }}"
-              height="{{ $image.Height }}"
+            {{- if ge $image.Width "590" -}}
+              {{ $fitImage.RelPermalink }} 590w
+            {{- else -}}
+              {{ $image.RelPermalink}} {{ $image.Width }}w
+            {{- end -}}
+          '
+          sizes='
+            (max-width: 180px) 148px,
+            {{- if ge $image.Width "295" -}}
+              (max-width: 320px) 295px,
+            {{- end -}}
+            {{- if ge $image.Width "590" -}}
+              590px
+            {{- else -}}
+              {{ $image.Width }}px
+            {{- end -}}
+          '
+          {{- end -}}
+          width="{{ $image.Width }}"
+          height="{{ $image.Height }}"
         />
       </picture>
     </a>
