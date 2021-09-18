@@ -3,10 +3,18 @@
   "name": "worker",
   "version": "1.0.0",
   "description": "A template for kick starting a Cloudflare Workers project",
-  "main": "index.js",
+  "main": "worker/script.js",
   "author": "Nick Babcock <nbabcock19@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "esbuild index.ts --minify --bundle --outfile=worker/script.js",
+    "test": "npm install --no-save typescript && tsc"
+  },
   "dependencies": {
     "@cloudflare/kv-asset-handler": "~0.1.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.2",
+    "esbuild": "^0.12.28"
   }
 }
