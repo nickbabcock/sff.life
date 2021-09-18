@@ -27,6 +27,10 @@ jobs:
     
     - name: Hugo Build
       run: hugo
+
+    - name: Test Cloudflare worker
+      run: npm ci && npm run build && npm test
+      working-directory: workers-site
     
     - name: Wrangler Build
       run: mv wrangler.example.toml wrangler.toml && wrangler build
