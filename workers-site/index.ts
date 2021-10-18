@@ -7,13 +7,10 @@ addEventListener("fetch", (event) => {
 async function handleEvent(event: FetchEvent) {
   // This proxies your Pages application under the condition that your Worker
   // script is deployed on the same custom domain as your Pages project
-  const response = await fetch(event.request)
+  const response = await fetch(event.request);
 
   const newResponse = new Response(response.body, response);
-  newResponse.headers.set(
-    "Strict-Transport-Security",
-    `max-age=${CACHE_AGE}`
-  );
+  newResponse.headers.set("Strict-Transport-Security", `max-age=${CACHE_AGE}`);
   newResponse.headers.set("X-Frame-Options", "SAMEORIGIN");
   newResponse.headers.set(
     "Content-Security-Policy",
