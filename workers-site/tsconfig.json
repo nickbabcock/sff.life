@@ -3,11 +3,12 @@
     "target": "esnext",
     "lib": ["esnext"],
     "types": ["@cloudflare/workers-types"],
+    "outFile": "worker/index.js",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-  }
+  },
+  "exclude": ["worker/"]
 }
