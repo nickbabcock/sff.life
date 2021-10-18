@@ -14,7 +14,7 @@ async function handleEvent(event: FetchEvent) {
   newResponse.headers.set("X-Frame-Options", "SAMEORIGIN");
   newResponse.headers.set(
     "Content-Security-Policy",
-    "default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'"
+    "default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com;"
   );
   newResponse.headers.set("X-XSS-Protection", "1; mode=block");
   newResponse.headers.set("X-Content-Type-Options", "nosniff");
