@@ -7,11 +7,7 @@ route = "sff.life/*"
 compatibility_date = "2021-09-18"
 
 [build]
-command = "npm ci && hugo && cd workers-site && npm ci && npm run build"
+command = "cd workers-site && npm ci && npm run build"
 
 [build.upload]
 format = "service-worker"
-
-[site]
-bucket = "./public"
-entry-point = "workers-site"
