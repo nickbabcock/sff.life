@@ -3,7 +3,7 @@
     "target": "esnext",
     "lib": ["esnext"],
     "types": ["@cloudflare/workers-types"],
-    "outFile": "worker/index.js",
+    "outFile": "worker/script.js",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
