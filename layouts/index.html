@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {{ partial "head.html" . -}} 
+    {{ partial "head.html" . -}}
+    {{$thumbImage := resources.Get "sff-icon.png" | fingerprint -}}
+    <meta property="og:image" content="{{$thumbImage.Permalink}}">
+    <meta property="og:image:width" content="{{$thumbImage.Width}}">
+    <meta property="og:image:height" content="{{$thumbImage.Height}}">
+    <meta property="og:description" content="SFF Life is a site dedicated to efficient computing: documenting niche products catered to small form factor enthusiasts and how run hardware quiet and power consciously.">
     <title>SFF Life - efficient computing</title>
   </head>
   <body>
