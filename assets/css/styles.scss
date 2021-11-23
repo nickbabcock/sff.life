@@ -138,14 +138,7 @@ div.highlight > pre > code {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-clr-h: 0;
-    --background-clr-s: 0%;
-    --background-clr-l: 7%;
-    --background-clr: hsl(
-      var(--background-clr-h),
-      var(--background-clr-s),
-      var(--background-clr-l)
-    );
+    --background-clr: hsl(0, 0%, 7%);
     --foreground-clr: hsl(0, 0%, 100%);
     --shadow-color: 0deg 0% 0%;
   }
