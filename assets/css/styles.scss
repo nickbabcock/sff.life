@@ -5,80 +5,87 @@
 
 :root {
   --header-color: #663399;
+
+  /* https://www.joshwcomeau.com/shadow-palette/ */
+  --shadow-color: 0deg 0% 63%;
+  --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
 .excerpt {
-    display: grid;
-    grid-template-areas: "thumb summary";
-    grid-column-gap: 2em;
+  display: grid;
+  grid-template-areas: "thumb summary";
+  grid-column-gap: 2em;
 }
 
 @media (max-width: 760px) {
-    .excerpt {
-        grid-template-areas: "thumb"
-                             "summary";
-    }
+  .excerpt {
+    grid-template-areas:
+      "thumb"
+      "summary";
+  }
 }
 
 .excerpt-thumbnail {
-    grid-area: thumb;
-    justify-self: center;
+  grid-area: thumb;
+  justify-self: center;
 }
 
 .excerpt-summary {
-    grid-area: summary;
+  grid-area: summary;
 }
 
 .layout {
-    display: grid;
-    grid-template-columns: minmax(15px, 1fr) minmax(min-content, 1024px) minmax(15px, 1fr);
-    grid-template-areas: "head head head" ". main ." "footer footer footer"
+  display: grid;
+  grid-template-columns: minmax(15px, 1fr) minmax(min-content, 1024px) minmax(
+      15px,
+      1fr
+    );
+  grid-template-areas: "head head head" ". main ." "footer footer footer";
 }
 
 .content {
-    grid-area: main;
+  grid-area: main;
 }
 
 .header {
-    grid-area: head;
-    background-color: var(--header-color);
-    color: #FFF;
-    max-width: 100%;
+  grid-area: head;
+  background-color: var(--header-color);
+  color: #fff;
+  max-width: 100%;
 }
 
 .header h1 {
-    text-shadow: 1px 1px #333,
-                 2px 2px #333,
-                 3px 3px #333,
-                 4px 4px #333,
-                 5px 5px #333,
-                 6px 6px #333;
-    font-weight: 900;
-    font-size: 3em;
-    margin-top: 0.1em;
-    margin-bottom: 0.1em;
-    text-align: center;
+  text-shadow: 1px 1px #333, 2px 2px #333, 3px 3px #333, 4px 4px #333,
+    5px 5px #333, 6px 6px #333;
+  font-weight: 900;
+  font-size: 3em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  text-align: center;
 }
 
 .slogan {
-    margin-left: 1em;
+  margin-left: 1em;
 }
 
 a.transparent {
-    box-shadow: none;
-    text-decoration: none;
-    color: inherit;
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
 }
 
 footer {
-    margin-top: 2em;
-    grid-area: footer;
-    text-align: center;
+  margin-top: 2em;
+  grid-area: footer;
+  text-align: center;
 }
 
 h2 {
-    border-bottom: 4mm ridge rgba(170, 50, 220, .6);
-    display: inline-block;
+  border-bottom: 4mm ridge rgba(170, 50, 220, 0.6);
+  display: inline-block;
 }
 
 figcaption {
@@ -98,36 +105,64 @@ figure img {
 
 figure img,
 .shadow-image {
-    box-shadow: #ddd 0px 0px 10px 2px;
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 article blockquote {
-    background-color: #efefef;
-	padding: 0.5em 1em;
-	margin-left: 0;
-	margin-right: 0;
+  background-color: #efefef;
+  padding: 0.5em 1em;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.hanchor { font-size: 100%; visibility: hidden; color:silver;}
-h1:hover a, h2:hover a, h3:hover a, h4:hover a { visibility: visible}
+.hanchor {
+  font-size: 100%;
+  visibility: hidden;
+  color: silver;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a {
+  visibility: visible;
+}
 
 div.highlight > pre {
-    padding: 1em;
-    display: grid;
+  padding: 1em;
+  display: grid;
 }
 
 div.highlight > pre > code {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color: rgb(152, 163, 173);
-    scrollbar-color: rgb(151, 173, 184) rgb(19, 21, 22);
-    background-color: rgb(19, 21, 22);
+  :root {
+    --background-clr-h: 0;
+    --background-clr-s: 0%;
+    --background-clr-l: 7%;
+    --background-clr: hsl(
+      var(--background-clr-h),
+      var(--background-clr-s),
+      var(--background-clr-l)
+    );
+    --foreground-clr: hsl(0, 0%, 100%);
+    --shadow-color: 0deg 0% 0%;
   }
 
-  a {
-    color: rgb(43, 121, 162);
+  /* Remove once supported by firefox */
+  @supports not (color-scheme: dark) {
+    html {
+      background-color: var(--background-clr);
+      color: var(--foreground-clr);
+    }
+
+    a {
+      color: rgb(158, 158, 255);
+    }
+
+    a:active {
+      color: rgb(255, 158, 158);
+    }
   }
 }
