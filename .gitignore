@@ -3,3 +3,4 @@
 /node_modules/
 dist/
 wrangler.toml
+.hugo_build.lock
