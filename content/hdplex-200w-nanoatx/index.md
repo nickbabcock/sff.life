@@ -44,7 +44,7 @@ If the depth of the plugin unit is too much, one can remove the two heat sinks b
 
 {{< sfffig src="bare-front.jpg" caption="HDPLEX 200w DC-ATX with front heat sink removed" >}}
 
-Removing the heat sinks shrinks the depth of the plugin unit to around 20mm total, a decrease of around 11-12mm. 
+Removing the heat sinks shrinks the depth of the plugin unit to around 20mm total, a decrease of around 11-12mm.
 
 {{< sfffig src="bare-back.jpg" caption="HDPLEX 200w DC-ATX with back heat sink removed" >}}
 
@@ -74,9 +74,8 @@ One stumbling block with HDPLEX is the power connection:
 
 The HDPLEX bundles a C14 power inlet and an ungrounded C8 inlet with a ground ring terminal (pictured above). I'm disappointed that the AC-DC unit lacks a [C6 inlet](https://en.wikipedia.org/wiki/IEC_60320#Appliance_couplers), especially because the 2019 S4M, which is pictured throughout, [enlarged the power entry cutout to fit a C6 AC inlet](https://nfc-systems.com/shop-all/c6-ac-inlet). To fix this, one would need to acquire and wire a C6 inlet to a [JST ELP-03V](https://www.arrow.com/en/products/elp-03v/jst-manufacturing) connector, use a different case that has a C14 cutout, use the C14 inlet in a pigtail fashion outside the case, cannibalize the C14 wires to a C6, or live with this safety issue. Since my wiring skills are slim to nonexistent and I'm married to the S4M, am I putting myself in harms way without a grounded computer?
 
-The answer is, yes the components and I are less safe than if I had used a C14 connection, but I would not consider it dangerous. **NOTE**: I'm not an electrical engineer so be wary if reading for certainty. There is nothing inherently unsafe about appliances with a C8 inlet if found on a 
+The answer is, yes the components and I are less safe than if I had used a C14 connection, but I would not consider it dangerous. **NOTE**: I'm not an electrical engineer so be wary if reading for certainty. There is nothing inherently unsafe about appliances with a C8 inlet if found on a
 [doubly insulated (Class II) appliance](https://en.wikipedia.org/wiki/Appliance_classes#Class_II). Since the HDPLEX 200w AC-DC converter includes a ring terminal for ground with the C8 inlet, I'm assuming it is not doubly insulated with a metal shell.  In the event where a live wire inside the HDPLex comes loose due to age, defect, etc and touches the metal shell, the S4M should not carry a lethal shock, as the S4M is encased in [mostly non-conductive anodized aluminium](https://smallformfactor.net/forum/threads/hdplex-400w-ac-dc-adapter.7069/page-9#post-103911). Even when placed inside a conductive case, the HDPLEX is equipped with [short circuit protection (SCP)](https://www.tomshardware.com/reviews/power-supplies-101,4193-21.html#scp-short-circuit-protection) which shuts off the power supply when a short is detected. These two assurances help mitigate the risk -- but use the grounded connection (C14 or C6) if possible.
-
 
 ### The Noise Issue
 

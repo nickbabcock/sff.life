@@ -16,8 +16,6 @@ In this post we will cover how I run the Ryzen 5900x as efficiently as possible 
 
 If you're more of a visual learner, I highly recommend Optimum Tech's videos on [undervolting on PBO2](https://www.youtube.com/watch?v=dfkrp25dpQ0) and running [the 5950x on a 47mm cooler](https://www.youtube.com/watch?v=AZWRcTqBqjQ) where he applied PBO2 undervolting with a custom power target, which is what we'll be doing here, but from a slightly different angle and a bit more background.
 
-
-
 ## Introduction
 
 I'm fortunate to be living near a microcenter and after having my ear to the ground, I was able to secure a Ryzen 5900x after a month of searching. Upgrading from a Ryzen 2700, the performance increase was massive. As a software developer I compile code all day and single core performance is as important as multi core as there are stages in compilation that are single threaded. After upgrading, compilation time for a project of mine was cut in half (8 minutes to 4), and certain single threaded microbenchmarks saw a 3x throughput improvement.
@@ -36,7 +34,7 @@ The first step is install the CPU under the cooler without tweaking anything and
 
 Installing the 5900x under the NH-L9a and opening [Cinebench R23](https://www.maxon.net/en/cinebench) (free CPU benchmarking program) and running the CPU multi core benchmark for a minimum of 10 minutes immediately resulted in two things:
 
-- Fan ramped up to 100%. Noctua fans at 100% are more bearable than others but no one would call it pleasant. 
+- Fan ramped up to 100%. Noctua fans at 100% are more bearable than others but no one would call it pleasant.
 - Thermal throttle. Temperature of the hottest CCD[^1] spiked to 90 ℃, which caused CPU package power to drop 10 watts and all core frequencies to drop 100 MHz over the course of the ten minute run. This is due to Ryzen CPUs ability to downclock themselves and regulate power usage when temperatures exceed a certain threshold.
 
 {{< sfffig src="cinebench-r23.png" caption="Cinebench R23 CPU multi core benchmark" >}}
@@ -57,7 +55,7 @@ We can see that after 10 minutes of running the Cinebench score settled in aroun
 
 We can conclude that at stock, the 5900x installed under the NH-L9a runs hot, loud, and restricted, but there is nothing inherently wrong running the 5900x this way. There's been a adage in the tech community that running CPUs hot shorten their life spans, but [AMD has refuted this for Ryzen 5000](https://www.pcgamer.com/amd-views-ryzen-5000-cpu-temperatures-up-to-95c-as-typical-and-by-design/), saying:
 
-> AMD views temps up to 90C [...] as typical and by design 
+> AMD views temps up to 90C [...] as typical and by design
 
 While AMD doesn't recommend installing the 5900x under the NH-L9a, they have our backs that it's not a risky way to run it.
 
@@ -85,7 +83,7 @@ The eagle eye among readers may have noticed the discrepancy where I keep referr
 
 After saving, rebooting, and rerunning the 10 minute multi core and single core benchmarks, one will notice the following:
 
-- A significant drop in the multi score. On the order of a ~17% drop compared to the thermal throttled stock run and a 27% drop compared to an unthrottled 5900x. 
+- A significant drop in the multi score. On the order of a ~17% drop compared to the thermal throttled stock run and a 27% drop compared to an unthrottled 5900x.
 - No change in single core score.
 
 I want to touch on the last point because I believe it is key that single threaded workflows remain unaffected by decreasing the power limit. With my Ryzen 2700, if I wanted to drastically change the power consumption, I'd have to set the [frequency and voltage across all cores](/how-to-undervolt-ryzen-cpu/#set-frequency-and-voltage), which resulted in horrendous drop in a single threaded performance as the cores couldn't boost above that like they normally would with Precision Boost. Thankfully later Zen processors have enabled a better way to adjust the power envelope.
@@ -154,9 +152,9 @@ Then creating and clicking our custom view will show us the error with the proce
 
 {{< sfffig src="whea-error.png" caption="WHEA error showing that core 1 caused the crash" >}}
 
-To calculate the core from the APIC ID, it is almost always `floor(ID / 2)`. If there is concern that this is not how a system's APIC IDs are configured, one method available is to use CPU-Z to dump out system information. 
+To calculate the core from the APIC ID, it is almost always `floor(ID / 2)`. If there is concern that this is not how a system's APIC IDs are configured, one method available is to use CPU-Z to dump out system information.
 
-With the knowledge that core 1 (in this example) causes crashes, we can determine the best cores by opening HWiNFO64 and examining core clock sensors. 
+With the knowledge that core 1 (in this example) causes crashes, we can determine the best cores by opening HWiNFO64 and examining core clock sensors.
 
 {{< sfffig src="perf.png" caption="HWiNFO64 showing core performance ranked" >}}
 
@@ -190,16 +188,16 @@ Setting a per core curve only netted a 2% increase in Cinebench scores. It's a s
 
 While running all these benchmarks, I had [OhmGraphite](https://github.com/nickbabcock/OhmGraphite), a hardware sensor collector, running in the background. It's not a requirement to run OhmGraphite, you can often accomplish the same thing by monitoring HWiNFO64 or having it write to a CSV.
 
-I overlaid the data reported by OhmGraphite: temperature, fan speed, package power, and all core frequency from each run to form a benchmark monitoring dashboard. 
+I overlaid the data reported by OhmGraphite: temperature, fan speed, package power, and all core frequency from each run to form a benchmark monitoring dashboard.
 
 {{< sfffig src="results.png" caption="Temperature, fan speed, power, and all core frequency. Click to enlarge" >}}
 
 There's a lot to unpack:
 
- - Stock throttled at 90 ℃ with fans at 100%. This can be seen in the CPU Package Power graph, as it starts out consuming 125 watts but then drops to 116 watts at the end.
- - Eco mode was middle of the road: temperature dropped 20 ℃, fan speed 25%, and a 400 MHz all core frequency
- - From stock, 65w PPT dropped 30 ℃, fan speed 40%, and nearly 1500 MHz all core frequency
- - From stock 65w PPT with -20 offset maintained the benefits of 65w PPT with more tolerable 1000 MHz reduction in all core frequency
+- Stock throttled at 90 ℃ with fans at 100%. This can be seen in the CPU Package Power graph, as it starts out consuming 125 watts but then drops to 116 watts at the end.
+- Eco mode was middle of the road: temperature dropped 20 ℃, fan speed 25%, and a 400 MHz all core frequency
+- From stock, 65w PPT dropped 30 ℃, fan speed 40%, and nearly 1500 MHz all core frequency
+- From stock 65w PPT with -20 offset maintained the benefits of 65w PPT with more tolerable 1000 MHz reduction in all core frequency
 
 Not shown in the graphs is that while the 65 watt PPT config is the only one to reach its limit during all core workloads, both stock and eco mode would exceed the power used in all core workloads during lighter workloads, which sounds counterintuitive but is due to [current density](https://www.anandtech.com/show/16214/amd-zen-3-ryzen-deep-dive-review-5950x-5900x-5800x-and-5700x-tested/8). Why the 65 watt PPT config is able to hit the PPT limit during all core workloads is due to me omitting to adjust current values (eg: TDC) away from those set by eco mode. Below is a screenshot of TDC and EDC at their limits (and PPT is not) during an eco run.
 
@@ -212,13 +210,13 @@ So there's no denying it, settling for a 1000 MHz reduction from stock is a huge
 - Single core performance was not harmed in any of the modifications
 - Performance decreases at a decaying rate as power decreases.
 
-Another way of looking at the last point is efficiency per watt. If we chart the cinebench scores compared to the PPT of each config we'll find that the config we ended with is the most efficient of all -- a 40% increase compared to stock conditions. 
+Another way of looking at the last point is efficiency per watt. If we chart the cinebench scores compared to the PPT of each config we'll find that the config we ended with is the most efficient of all -- a 40% increase compared to stock conditions.
 
 {{< sfffig src="cinebench-power-efficiency.png" caption="Efficiency of the Ryzen 5900x measured in Cinebench Multi Core Points per Watt" >}}
 
 This should be somewhat intuitive to those who've overclocked before as one will reach diminishing returns the more power they pump into the system. And the good news is that there isn't a tangible difference in performance per watt between the 87 watt PPT (eco mode) and 65 watt, so most users should be ok to enable eco and then apply curve offsets as shown. In fact it is arguable that eco mode is more efficient as the all core workload didn't reach the 87 watt PPT limit. I may just have to investigate what happens if one continues down the path of ever decreasing PPT and see if there is a clear winner in performance per watt.
 
-In the end, I'm happy with the results. The 5900x is still fast by any standard but now it sips power. 
+In the end, I'm happy with the results. The 5900x is still fast by any standard but now it sips power.
 
 The cinebench scores and R code to generate the plots are housed in the Github repo.
 

@@ -16,11 +16,11 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: 14
     - run: npm ci
       
     - name: Install hugo extended
-      run: curl -L -o hugo.deb 'https://github.com/gohugoio/hugo/releases/download/v0.73.0/hugo_extended_0.73.0_Linux-64bit.deb' && sudo dpkg -i hugo.deb
+      run: curl -L -o hugo.deb 'https://github.com/gohugoio/hugo/releases/download/v0.83.1/hugo_extended_0.83.1_Linux-64bit.deb' && sudo dpkg -i hugo.deb
     
     - name: Hugo Build
       run: hugo

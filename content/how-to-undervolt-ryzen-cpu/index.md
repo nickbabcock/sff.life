@@ -7,7 +7,7 @@ description: "Undervolting your CPU can make your system run cooler, quieter, an
 
 **Note: This is a living guide, corrections, suggestions and additional data points are welcomed. [A newer article](/efficiently-run-zen3-on-low-profile-coolers-with-undervolting/) has been published that focusses exclusively on Zen 3 (Ryzen 5000)**
 
-Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Compared to [how to undervolt your gpu](/how-to-undervolt-gpu/), undervolting your CPU can be daunting as the technique to achieve undervolting can change based on your CPU, motherboard vendor, motherboard model, and even motherboard BIOS version. This guide is focussing on undervolting desktop AMD Ryzen chips to keep the scope somewhat in check. Even though there are lots of variables hopefully everyone can find a solution. 
+Undervolting your CPU can make your system run cooler, quieter, and more efficiently. Compared to [how to undervolt your gpu](/how-to-undervolt-gpu/), undervolting your CPU can be daunting as the technique to achieve undervolting can change based on your CPU, motherboard vendor, motherboard model, and even motherboard BIOS version. This guide is focussing on undervolting desktop AMD Ryzen chips to keep the scope somewhat in check. Even though there are lots of variables hopefully everyone can find a solution.
 
 In this guide, we'll **undervolt a Ryzen 2700 to a 2700E's TDP**. But this can also be used to undervolt a 3900X (a 105W TDP processor) to 65W if one can't get their hand on the [OEM-only 65W 3900](https://www.anandtech.com/show/14961/amd-brings-ryzen-9-3900-and-ryzen-5-3500x-to-life).
 
@@ -44,7 +44,7 @@ Before we dive too deep into undervolting, let's break down what it really means
 - Kill A Watt shows 200 watts
 - The PSU ([SSP-300-SUG](https://seasonic.com/pub/media/pdf/industrial/datasheet/SSP-300-SUG.pdf)) is 300W 80 Plus Gold certified
 - Since the PSU is gold certified, while between 20-100% load, it's able to to convert 87%-90% of inbound power to the components with the rest dispersed as heat
-- Thus components are asking between 174-180 watts (else the PSU would be rated silver or platinum) 
+- Thus components are asking between 174-180 watts (else the PSU would be rated silver or platinum)
 - If the components are asking for max power (300 watts), the Kill A Watt should be reading 337-344 before shutdown
 
 ## Initial Benchmarks and Measurements
@@ -124,7 +124,7 @@ Not every bios has this option, but to give you an idea of its whereabouts, here
 In the event this option is available to you:
 
 - Set the PPT at a slight offset (140W for a 105W CPU or 85W for a 65W CPU)
-- Run both Cinebench benchmarks 3 times. Record scores, temperature, and power usage. 
+- Run both Cinebench benchmarks 3 times. Record scores, temperature, and power usage.
 - Increase the offset until desired threshold.
 
 One can try PPT adjustment coupled with a [negative vcore offset](#vcore-offset) for further gains, but mileage may vary.
@@ -155,7 +155,7 @@ While I normally recommend setting the value in increments of 10mv, the BIOS can
 
 Thus I ran the -50mv offset three times in cinebench, and then moved onto a -100mv offset, which proved stable as well.
 
-#### Results
+#### Vcore offset results
 
 {{< sfffig src="google-sheets-voltage-offset.png" caption="Results from applying a vcore offset" >}}
 
@@ -187,7 +187,7 @@ Disabling CPB means that cores can't exceed our set frequency (in the screenshot
 
 Let's benchmark the 0.875mv @ 3.0GHz setup and see where it lands.
 
-#### Results
+#### Set frequency and voltage results
 
 {{< sfffig src="google-sheets-underclock.png" caption="Results of underclocking and undervolting" >}}
 
@@ -196,7 +196,7 @@ Let's benchmark the 0.875mv @ 3.0GHz setup and see where it lands.
 - CPU power draw dropped ~30W (so we've achieved 2700E levels of power usage)
 - CPU temps dropped ~15 degrees
 
-Overall, I'd say this type of undervolting / underclocking isn't normally worth it. A 25% decrease in single threaded performance is tough to swallow unless you built a computer for purely multi-threaded workloads. Don't get me wrong, even at a 25% decrease, the computer operates normally. And a [youtuber did demonstrate](https://www.youtube.com/watch?v=dU0--0gyxks) that games ran surprisingly well even at an absurd underclock of 800MHz. Just know that there is a tangible cost with this method. 
+Overall, I'd say this type of undervolting / underclocking isn't normally worth it. A 25% decrease in single threaded performance is tough to swallow unless you built a computer for purely multi-threaded workloads. Don't get me wrong, even at a 25% decrease, the computer operates normally. And a [youtuber did demonstrate](https://www.youtube.com/watch?v=dU0--0gyxks) that games ran surprisingly well even at an absurd underclock of 800MHz. Just know that there is a tangible cost with this method.
 
 I wish I could say more about how the undervolted scores compare to other CPUs at stock especially the 2700E. The best I can do is take a [list of unofficial scores](https://www.cgdirector.com/cinebench-r20-scores-updated-results/) coupled with [smattering of official scores](https://www.anandtech.com/show/14053/maxon-releases-cinebench-r20-benchmark) and say that in the multi-threaded benchmark, we land around the 2600X mark while handily beating the i7-7700K (both 95W TDP). The single thread score is about equal to i7-4850HQ's, a 4C/8T mobile processor with a 47W TDP.
 

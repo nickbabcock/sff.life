@@ -93,7 +93,7 @@ The ONE2 Distro 400 is small, sleek, and sexy. Compared to [other 12v](https://w
 
 - One can hook up a GPU with up to two additional PCIe power connectors. 12v dc distro boards with PCIe power are incredibly sparse. The only other board I found was the [PICOBOX X200](http://www.pico-box.com/en/products/658/X200#) which only offers one connection and calls for forced air when operating at or above 120 watts.
 - Powers up to 400w (is which more than enough unless it's an 9900k + [an excessive 2080ti](https://www.newegg.com/msi-geforce-rtx-2080-ti-rtx-2080-ti-gaming-x-trio/p/N82E16814137338)).
-- Accepts any 12v DC input on 18-12 gauge wires via the WAGO terminal connector or one can use the 8pin 
+- Accepts any 12v DC input on 18-12 gauge wires via the WAGO terminal connector or one can use the 8pin
 - [Filters](https://en.wikipedia.org/wiki/Filter_capacitor) the DC power for downstream components
 
 Due note that the CPU EPS connector on both the distro and plugin unit is 4pin only. If your motherboard has an 8pin connection, you can still slot the 4pin connector into half of it. Don't fret too much that the 4pin can "only" power 144w. This should be sufficient for CPUs intended for SFF builds. It may not be advisable for the distro 400 to power a Threadripper, 9900k, or 8700k as these all exceeded 144w at full load [according to Anandtech](https://www.anandtech.com/show/14605/the-and-ryzen-3700x-3900x-review-raising-the-bar/19).

@@ -43,7 +43,7 @@ Before we dive too deep into undervolting, let's break down what it really means
 - Kill A Watt shows 200 watts
 - The PSU ([SSP-300-SUG](https://seasonic.com/pub/media/pdf/industrial/datasheet/SSP-300-SUG.pdf)) is 300W 80 Plus Gold certified
 - Since the PSU is gold certified, while between 20-100% load, it's able to to convert 87%-90% of inbound power to the components with the rest dispersed as heat
-- Thus components are asking between 174-180 watts (else the PSU would be rated silver or platinum) 
+- Thus components are asking between 174-180 watts (else the PSU would be rated silver or platinum)
 - If the components are asking for max power (300 watts), the Kill A Watt should be reading 337-344 before shutdown
 
 ## Initial Benchmarks and Measurements
@@ -196,7 +196,7 @@ Still not convinced? One thing that I've not mentioned is the noise reduction un
 
 I find this incredible. A single fan, ITX GPU at 100% load, below 70°C, under 60% fan max RPM. It's a SFF miracle; a GPU that is small, powerful, and silent.
 
-Undervolting, so underrated. 
+Undervolting, so underrated.
 
 ## FAQ
 
@@ -216,7 +216,7 @@ Undervolting, so underrated.
 
 You've read this far or ctlr + f "stress" and can't believe I've been so dismissive of stress tests. Not to go on a rant, but people put too much weight on stress tests, and some may find this guide woefully lacking if a stress test section is not included. Those same people will disagree amongst themselves about which stress tests should be ran, how they should be ran, and the durations of the tests. Anyone not following their formula is sacrificing stability. There is no perfect solution. You want to be comfortable with your computer, and that's up to you to define.
 
-So after a half of year of running the 800mv undervolt without crashes, I decided run Kombustor for a half day. No crashes. Sub 70°C. If Kombustor had crashed, it would not have worried me because (and as much as a weird flex as this is) I'm on this computer all day nearly every day and it's rock solid for my workloads. If Kombustor crashing has you worried, no sweat -- bump your undervolt up +25MHz until the stress test has ran long enough to satisfy you. 
+So after a half of year of running the 800mv undervolt without crashes, I decided run Kombustor for a half day. No crashes. Sub 70°C. If Kombustor had crashed, it would not have worried me because (and as much as a weird flex as this is) I'm on this computer all day nearly every day and it's rock solid for my workloads. If Kombustor crashing has you worried, no sweat -- bump your undervolt up +25MHz until the stress test has ran long enough to satisfy you.
 
 ## Discussion
 

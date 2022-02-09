@@ -12,7 +12,7 @@ Perhaps one of the longest running, but least discussed purveyor of SFF cases is
 Specs:
 
 - Mini-ITX, 4.5L case
-- Steel frame (1mm), aluminum panels (1.5mm) 
+- Steel frame (1mm), aluminum panels (1.5mm)
 - Noctua's L9i/L9a CPU cooler
 - Supports dual slot ITX GPUs (175mm in length)
 - Flex ATX PSUs (150mm in length)
@@ -55,7 +55,7 @@ Do note that CustomMOD has apparently moved orders to their website, which may b
 
 {{< sfffig src="front-panelless.jpg" caption="CPU view without side panels" >}}
 
-Specs: 
+Specs:
 
 - Ryzen 2700
 - MSI Aero 1070 ITX

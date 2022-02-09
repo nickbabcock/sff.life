@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.217.1/containers/hugo
+{
+  "name": "sff.life",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "hugo_extended",
+      "VERSION": "0.83.1",
+      "NODE_VERSION": "14"
+    }
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "html.format.templating": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "bungcip.better-toml",
+    "davidanson.vscode-markdownlint"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [1313],
+
+  "remoteUser": "node"
+}
