@@ -6,4 +6,4 @@ https://:project.pages.dev/*
   X-Frame-Options: SAMEORIGIN
   Strict-Transport-Security: max-age=8640000
   Referrer-Policy: no-referrer
-  Content-Security-Policy: default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com;
+  Content-Security-Policy: default-src 'none'; img-src 'self'; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' https://static.cloudflareinsights.com;
