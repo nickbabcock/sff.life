@@ -3,9 +3,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark"/>
 
-    {{ $opts := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-    {{ $blog := resources.Get "css/styles.scss" | toCSS $opts | fingerprint -}}
-    <style>{{ $blog.Content | safeCSS }}</style>
+    {{ $opts := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+    {{ $secureCss := resources.Get "css/styles.scss" | toCSS $opts | resources.Minify | fingerprint "sha512" }}
+    <link href="{{ $secureCss.RelPermalink }}" rel="stylesheet" integrity="{{ $secureCss.Data.Integrity }}" crossorigin="anonymous">
 
     {{- $fav := resources.Get "favicon.ico" | fingerprint -}}
     {{ $icon := resources.Get "sff-icon.png" }}
